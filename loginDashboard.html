@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User view EasyRide</title>
+  <!--cdn icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="cssfile/sidebar.css">
+  <style type="text/css">
+
+      body{
+
+      background-image: url("image/1.jpg");
+      background-position: center;
+      background-size: cover;
+      height: 700px;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+    }
+    .adminTopic{
+      text-align: center;
+      color: #fff;
+      
+
+    }
+
+table
+{
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+table th
+{
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ddd;
+    padding: 15px 0;
+    font-family: Arial, sans-serif;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr td
+{
+    border-bottom: 2px solid #ddd;
+    padding: 15px 0;
+    font-family: Arial, sans-serif;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr td a
+{
+    color: white;
+    border-radius: 5px;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #4CAF50;
+    transition: background-color 0.3s;
+}
+
+table tr td a:hover
+{
+    background-color: #45a049;
+}
+
+.btnPolicy
+{
+    padding: 8px 12px;
+    border: 2px solid yellow;
+    border-radius: 7px;
+    background-color: red;
+    color: white;
+    margin-left: 20px;
+    transition: background-color 0.3s;
+}
+
+.btnPolicy:hover
+{
+    background-color: #f44336;
+}
+
+
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="check">
+
+  <label for="check">
+<i class="fa fa-bars" id="btn"></i>
+<i class="fa fa-times" id="cancle"></i>
+
+
+  </label>
+  <div class="sidebar">
+<header><img src="image/Re.png">
+<p>Username Here</p>
+</header>
+<ul>
+
+
+    <li><a href="viewBus.html">Ticket Booking</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="logout.html">Log out</a></li>
+  <!--  <li><a href="#">Event</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Service</a></li>
+    <li><a href="#">Contact</a></li>-->
+    </ul>
+ <!--  <li>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="fa fa-youtube"></i></a>
+        
+      </div>
+    </li>-->
+   
+
+</div>
+
+
+
+<div class="sidebar2">
+
+
+    <h1 class="adminTopic">Book Your Ticket</h1>
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Via City</th>
+        <th>Destination</th>
+        <th>Bus Name</th>
+        <th>Departure Date</th>
+        <th>Departure Time</th>
+        <th>Cost</th>
+        <th>Booking</th>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td>City A</td>
+        <td>Destination X</td>
+        <td>Bus Alpha</td>
+        <td>2024-04-01</td>
+        <td>08:00 AM</td>
+        <td>$20</td>
+        <td><a href="AddBooking.php?id=1">Book Now</a></td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>City B</td>
+        <td>Destination Y</td>
+        <td>Bus Bravo</td>
+        <td>2024-04-02</td>
+        <td>09:00 AM</td>
+        <td>$25</td>
+        <td><a href="AddBooking.php?id=2">Book Now</a></td>
+    </tr>
+
+    <!-- Add more rows similarly -->
+
+</table>
+
+</div>
+
+</body>
+</html>
