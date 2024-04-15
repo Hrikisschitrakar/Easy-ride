@@ -5,7 +5,7 @@
   <title>EZfare Bus and Ticket Booking</title>
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="footer.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" type="text/css" href="cssfile>/videoedit.css">
   <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
