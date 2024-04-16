@@ -72,6 +72,17 @@ h1{
 {
     color: #39dc79;
 }
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #d3d1d1; /* Change placeholder color here */
+}
+a.forgot-password {
+    position: absolute;
+    padding: 30px;
+    right: 0;
+    bottom: 8px; /* Adjust the vertical position as needed */
+}
+
 
 
 
