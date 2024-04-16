@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             
             $result = mysqli_query($conn, $query);
             if ($result) {
-                echo "<script LANGUAGE='JavaScript'>window.alert('Successfully signed up!'); window.location.href='Login.php';</script>";
+                echo "<script LANGUAGE='JavaScript'>window.alert('Successfully signed up!'); window.location.href='customer_login.php';</script>";
             } else {
                 echo "Error: " . mysqli_error($conn);
             }
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="title">
                 Sign Up for EasyRide Bus Service
             </div>
-            <form action="customer_login.php" method="POST">
+            <form action="#" method="POST">
                 <div class="form_wrap">
                     <div class="input_grp">
                         <div class="input_wrap">
