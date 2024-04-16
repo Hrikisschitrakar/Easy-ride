@@ -34,9 +34,7 @@
         </ul>
     </nav>
 
-    <?php include("nav.php");
-             ?>
-
+   
 <div class="confirm">
 <?php
 session_start();
@@ -56,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($password == $con_pass) {
             //save to database
             $user_id = random_num(20);
-            $query = "INSERT INTO users (user_id, First_Name, Last_Name, username, email, password) VALUES ('$user_id','$fname','$lname','$user_name','$email','$password')";
+            $query = "insert into users (user_id, First_Name, Last_Name, username, email, password) VALUES ('$user_id','$fname','$lname','$user_name','$email','$password')";
             
             $result = mysqli_query($conn, $query);
             if ($result) {
@@ -74,13 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 ?>
 </div>
 
-
     <div class="wrapper">
         <div class="registration_form">
             <div class="title">
                 Sign Up for EasyRide Bus Service
             </div>
-            <form action="connection.php" method="POST">
+            <form action="customer_login.php" method="POST">
                 <div class="form_wrap">
                     <div class="input_grp">
                         <div class="input_wrap">
