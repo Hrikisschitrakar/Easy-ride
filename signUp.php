@@ -34,45 +34,77 @@
         </ul>
     </nav>
 
-    <div class="confirm">
+    <?php include("nav.php");
+             ?>
 
-        <?php
-            session_start();
-            include("connection.php");
-            include("function.php");
+<div class="confirm">
 
-            if($_SERVER['REQUEST_METHOD'] == "POST") {
-                $user_name = $_POST['user_name'];
-                $fname = $_POST['fname'];
-                $lname = $_POST['lname'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $con_pass = $_POST['cpassword'];
+<?php
 
-                if(!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
-                    if($password == $con_pass) {
-                        $user_id = random_num(20);
-                        $query = "insert into users (user_id, First_Name, Last_Name, username, email, password) values ('$user_id', '$fname', '$lname', '$user_name', '$email', '$password')";
-                        mysqli_query($conn, $query);
-                        echo "<script>alert('Successfully signed up!');</script>";
-                        echo "<script>window.location.href='Login.php';</script>";
-                    } else {
-                        echo "Please enter confirm password as previous one!!";
-                    }
-                } else {
-                    echo "Please enter valid information!";
-                }
-            }
-        ?>
+session_start();
 
-    </div>
+  include("connection.php");
+  include("function.php");
+
+
+  if($_SERVER['REQUEST_METHOD'] == "POST")
+  {
+    //something was posted
+    $user_name = $_POST['user_name'];
+   
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $con_pass=$_POST['cpassword'];
+
+
+   // echo $user_name;
+
+
+    if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+    {
+        
+
+       if($password==$con_pass){
+
+        
+        //   $password=md5($password);//
+
+            //save to database
+            $user_id = random_num(20);
+            $query = "insert into users (user_id,First_Name,Last_Name,username,email,password) values ('$user_id','$fname','$lname','$user_name','$email','$password')";
+
+            mysqli_query($conn,$query);
+
+            echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Succesfully your Sign Up!!!');
+    window.location.href='Login.php';
+    </script>");
+
+        }
+        else{
+
+             echo "Please enter confirm password as previous one!!";
+
+          }
+    }
+    else{
+    
+         echo "Please enter some valid information!";
+
+      }
+  }
+?>
+
+</div>
 
     <div class="wrapper">
         <div class="registration_form">
             <div class="title">
                 Sign Up for EasyRide Bus Service
             </div>
-            <form action="connect" method="POST">
+            <form action="connection.php" method="POST">
                 <div class="form_wrap">
                     <div class="input_grp">
                         <div class="input_wrap">
