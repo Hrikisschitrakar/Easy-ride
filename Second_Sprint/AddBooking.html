@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>booking page</title>
+  <!--cdn icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="cssfile/sidebar.css">
+  <link rel="stylesheet" href="cssfile/signUp.css">
+  <link rel="stylesheet" href="cssfile/addbooking.css">
+  <style type="text/css">
+    body{
+        background-image: url("image/1.jpg");
+    }
+
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="check">
+
+  <label for="check">
+    <i class="fa fa-bars" id="btn"></i>
+    <i class="fa fa-times" id="cancle"></i>
+  </label>
+  <div class="sidebar">
+    <header><img src="image/avatar.png">
+      <p>Username</p> <!-- replace "Username" with PHP variable if needed -->
+    </header>
+    <ul>
+      <li><a href="viewBus.html">Ticket Booking</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="logout.html">Logout</a></li>
+    </ul>
+  </div>
+  <div class="sidebar2">
+    <h1 class="adminTopic">Get Your Ticket...</h1>
+    <!-- Your PHP code here -->
+    <div class="wrapper">
+      <div class="registration_form">
+        <div class="title">
+          Geting A Ticket...
+        </div>
+        <form action="#" method="POST">
+          <div class="form_wrap">
+            <div class="input_wrap">
+              <label for="title">Passenger Name</label>
+              <input type="text" id="title" name="passenger_name" placeholder="Passenger Name" required>
+            </div>
+            <div class="input_wrap">
+              <label for="title">Mobile</label>
+              <input type="text" id="title" name="mob" placeholder="Mobile Number" required>
+            </div>
+            <div class="input_wrap">
+              <label for="title">E-mail</label>
+              <input type="E-mail" id="title" name="email" placeholder="E-mail" class="idclass" required>
+            </div>
+            <div class="input_wrap">
+              <label for="title">Pickup Destination</label>
+              <input type="text" id="title" name="board_place" placeholder="Pickup" required>
+            </div>
+            <div class="input_wrap">
+              <label for="title">Your destination</label>
+              <input type="text" id="title" name="Your_destination" placeholder="Your destination" required>
+            </div>
+            <div class="input_wrap">
+              <input type="submit" value="Booking Now" class="submit_btn" name="AddBooking">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
