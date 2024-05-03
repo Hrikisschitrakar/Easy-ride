@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel of Bus Services</title>
+    <!-- CDN icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="StationDash.css">
+    <style>
+        body {
+            background-image: url("1.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 100vh; /* Full viewport height */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif; /* Adding a fallback font */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i> <!-- Changed id to cancel -->
+    </label>
+    <div class="sidebar">
+        <header>
+            <img src="avatar.png" alt="Avatar">
+            
+        </header>
+        <ul>
+            <li><a href="StationDash.html">Manage Routes</a></li>
+            <li><a href="ManagesBuses.html">Manage Buses</a></li>
+            <li><a href="adminLogout.html">Logout</a></li> <!-- Changed "logout" to "Logout" -->
+        </ul>
+    </div>
+    <div class="sidebar2">
+        <h1 class="adminTopic">Manage Route of Buses</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Via City</th>
+                <th>Destination</th>
+                <th>Bus Name</th>
+                <th>Departure Date</th>
+                <th>Departure Time</th>
+                <th>Cost</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <!-- Sample data -->
+            <tr>
+                <td>1</td>
+                <td>New York</td>
+                <td>Los Angeles</td>
+                <td>Express Bus</td>
+                <td>2024-05-01</td>
+                <td>08:00 AM</td>
+                <td>$50</td>
+                <td><button class="edit-btn">Edit</button></td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Chicago</td>
+                <td>Houston</td>
+                <td>City Cruiser</td>
+                <td>2024-05-02</td>
+                <td>10:00 AM</td>
+                <td>$70</td>
+                <td><button class="edit-btn">Edit</button></td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+        <br>
+        <a href="Addroute.html"><button class="btnPolicy">Add Route</button></a>
+    </div>
+</body>
+</html>

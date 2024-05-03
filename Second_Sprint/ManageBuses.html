@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel of Bus</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="managebuses.css"> <!-- Assuming all CSS is in styles.css -->
+</head>
+<body>
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fa fa-bars" id="btn"></i>
+    <i class="fa fa-times" id="cancle"></i>
+  </label>
+  <div class="sidebar">
+    <header><img src="avatar.png">
+    <p>Username</p>
+    </header>
+    <ul>
+      <li><a href="adminDash.html">Manage Routes</a></li>
+      <li><a href="ManagesBuses.html">Manage Buses</a></li>
+      <li><a href="adminLogout.html">Logout</a></li>
+    </ul>
+  </div>
+  <div class="sidebar2">
+    <h1 class="adminTopic">Manage Buses</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Bus Name</th>
+        <th>Tel Number</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Bus A</td>
+        <td>123456789</td>
+        <td><button>Update</button></td>
+        <td><button class="delete-btn">Delete</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Bus B</td>
+        <td>987654321</td>
+        <td><button>Update</button></td>
+        <td><button class="delete-btn">Delete</button></td>
+      </tr>
+    </table>
+    <a href="AddBus.html"><button class="btnPolicy">Add Bus</button></a>
+  </div>
+</body>
+</html>
