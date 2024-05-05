@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Driver Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="sidebar.css"> <!-- Add sidebar styles here -->
+    <link rel="stylesheet" href="driverDashboard.css"> <!-- External CSS file for driver dashboard -->
+    <style>
+        body {
+            background-image: url("1.jpg"); /* Replace with your image path */
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>
+            <img src="avatar.png" alt="Avatar"> <!-- Replace with actual avatar image -->
+            <p>Driver Name</p> <!-- Replace with PHP variable for driver's name -->
+        </header>
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="driverLogout.html">Logout</a></li>
+        </ul>
+    </div>
+    <div class="sidebar2">
+        <h1 class="adminTopic">Bus Driver Dashboard</h1>
+        <div id="profile">
+            <h2>Driver Profile</h2>
+            <table>
+                <tr><th>First Name:</th><td>John</td></tr> <!-- Replace with actual data -->
+                <tr><th>Last Name:</th><td>Doe</td></tr> <!-- Replace with actual data -->
+                <tr><th>Driver ID:</th><td>12345</td></tr> <!-- Replace with actual data -->
+                <tr><th>Phone Number:</th><td>123-456-7890</td></tr> <!-- Replace with actual data -->
+            </table>
+        </div>
+        <div id="assignedRoute">
+            <h2>Assigned Bus and Route</h2>
+            <p><strong>Bus Name:</strong> Express Bus</p> <!-- Replace with actual data -->
+            <p><strong>Route:</strong> City A to City B</p> <!-- Replace with actual data -->
+            <button class="btn" onclick="sendNotification('Departure')">Departure</button>
+            <button class="btn" onclick="sendNotification('Arrived')">Arrived at Destination</button>
+        </div>
+    </div>
+
+    <script>
+        function sendNotification(status) {
+            if (status === "Departure") {
+                alert("Departure notification sent to passengers.");
+            } else if (status === "Arrived") {
+                alert("Arrival notification sent to passengers.");
+            }
+        }
+    </script>
+</body>
+</html>
