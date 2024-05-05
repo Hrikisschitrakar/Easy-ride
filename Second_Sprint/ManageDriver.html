@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Station Manager Manage Drivers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="managedriver.css">
+</head>
+<body>
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fa fa-bars" id="btn"></i>
+    <i class="fa fa-times" id="cancel"></i>
+  </label>
+  <div class="sidebar">
+    <header><img src="avatar.png">
+    <p>Username</p>
+    </header>
+    <ul>
+      <li><a href="StationDash.html">Manage Routes</a></li>
+      <li><a href="ManageBuses.html">Manage Buses</a></li>
+      <li><a href="ManageDriver.html">Manage Drivers</a></li>
+      <li><a href="Bookingpeople.html">Booking People</a></li>
+      <li><a href="Transaction.html">Transaction</a></li>
+      <li><a href="home.html">Logout</a></li>
+    </ul>
+  </div>
+  <div class="sidebar2">
+    <h1 class="adminTopic">Manage Drivers</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Driver Name</th>
+        <th>Driver ID</th>
+        <th>Tel Number</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>John Doe</td>
+        <td>D001</td>
+        <td>123456789</td>
+        <td><button>Update</button></td>
+        <td><button class="delete-btn">Delete</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Jane Smith</td>
+        <td>D002</td>
+        <td>987654321</td>
+        <td><button>Update</button></td>
+        <td><button class="delete-btn">Delete</button></td>
+      </tr>
+    </table>
+    <a href="AddDriver.html"><button class="btnPolicy">Add Driver</button></a>
+  </div>
+  <div id="addDriverForm" style="display:none;">
+    <form action="submitDriver.php" method="post">
+      <label for="driverName">Driver Name:</label>
+      <input type="text" id="driverName" name="driverName" required>
+      <label for="driverId">Driver ID:</label>
+      <input type="text" id="driverId" name="driverId" required disabled>
+      <label for="telNumber">Telephone Number:</label>
+      <input type="text" id="telNumber" name="telNumber" required>
+      <button type="submit" class="btnPolicy">Add Driver Now</button>
+    </form>
+  </div>
+  <!-- JavaScript to show/hide form and populate driver ID -->
+  <script>
+    function showAddDriverForm() {
+      document.getElementById('addDriverForm').style.display = 'block';
+    }
+    function assignDriver(driverId) {
+      document.getElementById('driverId').value = driverId;
+      showAddDriverForm();
+    }
+  </script>
+</body>
+</html>

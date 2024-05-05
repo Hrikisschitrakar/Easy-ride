@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Station manager manage bus</title>
+  <title>Payment Received</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="sidebar.css">
-  <link rel="stylesheet" href="managebuses.css"> <!-- Assuming all CSS is in styles.css -->
+  <link rel="stylesheet" href="Transaction.css"> <!-- Assume all CSS is in this external file -->
 </head>
+<style>
+    body{
+        background-image: url("1.jpg");
+    }
+</style>
 <body>
   <input type="checkbox" id="check">
   <label for="check">
     <i class="fa fa-bars" id="btn"></i>
-    <i class="fa fa-times" id="cancle"></i>
+    <i class="fa fa-times" id="cancel"></i>
   </label>
   <div class="sidebar">
     <header><img src="avatar.png">
@@ -21,36 +26,55 @@
       <li><a href="ManageBuses.html">Manage Buses</a></li>
       <li><a href="ManageDriver.html">Manage Driver</a></li>
       <li><a href="Bookingpeople.html">Booking People</a></li>
-     <li><a href="Transaction.html">Transaction</a></li>
+      <li><a href="Transaction.html">Transaction</a></li>
       <li><a href="home.html">Logout</a></li>
     </ul>
   </div>
   <div class="sidebar2">
-    <h1 class="adminTopic">Manage Buses</h1>
+    <h1 class="adminTopic">Transaction Received</h1>
     <table>
       <tr>
         <th>ID</th>
-        <th>Bus Name</th>
-        <th>Tel Number</th>
-        <th>Update</th>
+        <th>Paid Amount</th>
+        <th>Paid Passenger Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Update/Edit</th>
         <th>Delete</th>
       </tr>
       <tr>
         <td>1</td>
-        <td>Bus A</td>
-        <td>123456789</td>
+        <td>$100</td>
+        <td>John Doe</td>
+        <td>johndoe@example.com</td>
+        <td>1234 Street</td>
+        <td>City</td>
         <td><button>Update</button></td>
         <td><button class="delete-btn">Delete</button></td>
       </tr>
       <tr>
         <td>2</td>
-        <td>Bus B</td>
-        <td>987654321</td>
+        <td>$100</td>
+        <td>John Doe</td>
+        <td>johndoe@example.com</td>
+        <td>1234 Street</td>
+        <td>City</td>
         <td><button>Update</button></td>
         <td><button class="delete-btn">Delete</button></td>
       </tr>
+      <tr>
+        <td>3</td>
+        <td>$100</td>
+        <td>John Doe</td>
+        <td>johndoe@example.com</td>
+        <td>1234 Street</td>
+        <td>City</td>
+        <td><button>Update</button></td>
+        <td><button class="delete-btn">Delete</button></td>
+      </tr>
+      <!-- More rows can be added here -->
     </table>
-    <a href="AddBus.html"><button class="btnPolicy">Add Bus</button></a>
   </div>
 </body>
 </html>

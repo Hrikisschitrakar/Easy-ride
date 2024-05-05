@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking Manage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="BookingManage.css"> 
+</head>
+<style>
+    body{
+        background-image: url(1.jpg);
+    }
+</style>
+<body>
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fa fa-bars" id="btn"></i>
+    <i class="fa fa-times" id="cancel"></i>
+  </label>
+  <div class="sidebar">
+    <header><img src="avatar.png">
+    <p>Username</p>
+    </header>
+    <ul>
+      <li><a href="StationDash.html">Manage Routes</a></li>
+      <li><a href="ManageBuses.html">Manage Buses</a></li>
+      <li><a href="ManageDriver.html">Manage Driver</a></li>
+      <li><a href="BookingManage.html">Booking People</a></li>
+      <li><a href="Transaction.html">Transaction</a></li>
+      <li><a href="home.html">Logout</a></li>
+    </ul>
+  </div>
+  <div class="sidebar2">
+    <h1 class="adminTopic">Manage Bookings</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Passenger Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Boarding Place</th>
+        <th>Destination</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>John Doe</td>
+        <td>1234567890</td>
+        <td>johndoe@example.com</td>
+        <td>City A</td>
+        <td>City B</td>
+        <td><button class="update-btn">Update</button></td>
+        <td><button class="delete-btn">Delete</button></td>
+      </tr>
+        <tr>
+        <td>2</td>
+        <td>John Doe</td>
+        <td>1234567890</td>
+        <td>johndoe@example.com</td>
+        <td>City A</td>
+        <td>City B</td>
+        <td><button class="update-btn">Update</button></td>
+        <td><button class="delete-btn">Delete</button></td>
+      </tr>
+        <tr>
+        <td>3</td>
+        <td>John Doe</td>
+        <td>1234567890</td>
+        <td>johndoe@example.com</td>
+        <td>City A</td>
+        <td>City B</td>
+        <td><button class="update-btn">Update</button></td>
+        <td><button class="delete-btn">Delete</button></td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
