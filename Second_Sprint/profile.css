@@ -8,14 +8,14 @@
 /* Body Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff; 
+    background-color: black; 
 }
 
 /* Header Styles */
 header {
     background-color: #000000; 
     color: #fff;
-    padding: 10px 0; /* Increased padding */
+    padding: 10px 0; 
 }
 
 nav {
@@ -25,7 +25,7 @@ nav {
 }
 
 .logo {
-    font-size: 32px; /* Increased font size */
+    font-size: 32px; 
     font-weight: bold;
 }
 
@@ -46,22 +46,22 @@ nav ul li a {
 
 /* Container Styles */
 .container {
-    max-width: 1400px; /* Increased max-width */
-    margin: 50px auto; /* Increased margin */
-    padding: 0 50px; /* Increased padding */
+    max-width: 1400px; 
+    margin: 50px auto; 
+    padding: 0 50px; 
 }
 
 .user-greeting {
-    font-size: 24px; /* Increased font size */
-    margin-bottom: 30px; /* Increased margin */
+    font-size: 24px; 
+    margin-bottom: 30px; 
+    color: white;
 }
 
-/* Content Wrapper Styles */
 .content-wrapper {
     display: flex;
 }
 
-/* Left Section Styles */
+
 .left {
     display: flex;
     flex-direction: column;
@@ -75,14 +75,14 @@ nav ul li a {
 /* Button Styles */
 .btn {
     display: inline-block;
-    padding: 15px 30px; /* Increased padding */
-    margin-top: 20px; /* Increased margin */
+    padding: 15px 30px; 
+    margin-top: 20px; 
     border: none;
-    border-radius: 8px; /* Increased border-radius */
+    border-radius: 8px; 
     cursor: pointer;
     text-decoration: none;
     color: #fff;
-    font-size: 18px; /* Increased font size */
+    font-size: 18px; 
 }
 
 .upload-btn {

@@ -1,0 +1,85 @@
+/* General Body Styles */
+body {
+    background-image: url("1.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh; /* Full viewport height */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif; /* Adding a fallback font */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Heading Styles */
+.adminTopic {
+    text-align: center;
+    color: #fff; /* White color for contrast */
+}
+
+/* Table Styles */
+table {
+    width: 80%;
+    margin: 50px auto; /* Center the table with margin */
+    border-collapse: collapse; /* Remove space between borders */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners for the table */
+}
+
+table th {
+    background-color: #f2f2f2; /* Light grey background for headers */
+    border-bottom: 2px solid #ddd; /* Grey bottom border */
+    padding: 15px; /* Spacious padding for aesthetic spacing */
+    font-weight: bold; /* Bold font for header cells */
+    font-family: Arial, sans-serif; /* Consistent font usage */
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping for rows */
+}
+
+table tr td {
+    border-bottom: 2px solid #ddd; /* Consistent border for separation */
+    padding: 15px; /* Uniform padding for content */
+    font-size: 20px; /* Legible font size */
+}
+
+table tr:last-child td {
+    border-bottom: none; /* Remove bottom border on the last row */
+}
+
+/* Button Styles */
+table tr td button,
+.btnPolicy {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green background for buttons */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+table tr td button:hover,
+.btnPolicy:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+table tr td button.delete-btn,
+.btnPolicy {
+    background-color: #f44336; /* Red background for delete and important actions */
+}
+
+table tr td button.delete-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover for delete buttons */
+}
+
+/* Special Button Styles */
+.btnPolicy {
+    padding: 15px 20px; /* Larger padding for primary action buttons */
+    border: 2px solid yellow; /* Distinctive yellow border */
+    margin: 20px auto; /* Center button horizontally */
+    display: block; /* Block display to fit content */
+    transition: background-color 0.3s; /* Consistent transition effect */
+}

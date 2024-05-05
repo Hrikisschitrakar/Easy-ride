@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="signUp.css">
+    <link rel="stylesheet" href="addbooking.css">
+    <style>
+        body {
+            background-image: url("1.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header><img src="avatar.png">
+            <p>Username</p> <!-- replace "Username" with PHP variable if needed -->
+        </header>
+        <ul>
+            <li><a href="adminDash.html">Manage Users</a></li>
+            <li><a href="BookingPeople.html">Booking People</a></li>
+            <li><a href="Transaction.html">Transaction</a></li>
+            <li><a href="home.html">Logout</a></li>
+        </ul>
+    </div>
+    <div class="sidebar2">
+        <h1 class="adminTopic">Manage User</h1>
+        <div class="wrapper">
+            <div class="registration_form">
+                <div class="title">Add a User</div>
+                <form action="addUser.php" method="POST">
+                    <div class="form_wrap">
+                        <div class="input_wrap">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="input_wrap">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="user@example.com" required>
+                        </div>
+                        <div class="input_wrap">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="input_wrap">
+                            <label for="mob">Mobile</label>
+                            <input type="text" id="mob" name="mob" placeholder="Mobile Number" required>
+                        </div>
+                        <div class="input_wrap">
+                            <label for="role">Role</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select Role</option>
+                                <option value="admin">Admin</option>
+                                <option value="manager">Manager</option>
+                                <option value="driver">Driver</option>
+                                <option value="customer">Customer</option>
+                            </select>
+                        </div>
+                        <div class="input_wrap">
+                            <input type="submit" value="Add User Now" class="submit_btn" name="AddUser">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openForm(formId) {
+            document.getElementById(formId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

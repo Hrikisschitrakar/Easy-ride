@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bus Adding</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="signUp.css">
+    <link rel="stylesheet" href="addbus.css"> <!-- New external CSS file -->
+</head>
+<style>
+    body{
+        background-image: url(1.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 100vh; /* Full viewport height */
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: Arial, sans-serif; /* Adding a fallback font */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+    }
+</style>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header><img src="avatar.png">
+            <p>Username</p> <!-- Replace "Username" with PHP variable if needed -->
+        </header>
+        <ul>
+            <li><a href="StationDash.html">Manage Routes</a></li>
+            <li><a href="ManageBuses.html">Manage Buses</a></li>
+            <li><a href="ManageDriver.html">Manage Driver</a></li>
+            <li><a href="BookingPeople.html">Booking People</a></li>
+           <li><a href="Transaction.html">Transaction</a></li>
+            <li><a href="home.html">Logonut</a></li>
+        </ul>
+    </div>
+    <div class="sidebar2">
+        <div class="wrapper">
+            <div class="registration_form">
+                <div class="title">Bus Adding</div>
+                <form action="addBus.php" method="POST">
+                    <div class="form_wrap">
+                        <div class="input_wrap">
+                            <label for="bus_name">Bus Name</label>
+                            <input type="text" id="bus_name" name="bus_name" placeholder="Bus Name" required>
+                        </div>
+                        <div class="input_wrap">
+                            <label for="tel">Mobile Number</label>
+                            <input type="text" id="mob" name="mob" placeholder="mob" required>
+                        </div>
+                        <div class="input_wrap">
+                            <input type="submit" value="Add Bus Now" class="submit_btn" name="AddBus">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

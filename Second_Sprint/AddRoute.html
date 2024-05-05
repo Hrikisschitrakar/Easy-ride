@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Routes Adding</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="signUp.css">
+</head>
+<style>
+    body{
+        background-image: url(1.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 700px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+    
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fa fa-bars" id="btn"></i>
+    <i class="fa fa-times" id="cancel"></i>
+  </label>
+  <div class="sidebar">
+    <header><img src="avatar.png">
+    <p>Username</p> <!-- Replace "Username" with PHP variable if needed -->
+    </header>
+    <ul>
+      <li><a href="StationDash.html">Manage Routes</a></li>
+      <li><a href="ManageBuses.html">Manage Buses</a></li>
+      <li><a href="BookingManage.html">Booking People</a></li>
+      <li><a href="Transaction.html">Transaction</a></li>
+      <li><a href="Home.html">Logout</a></li>
+    </ul>
+  </div>
+  <div class="sidebar2">
+    <div class="wrapper">
+      <div class="registration_form">
+        <div class="title">Routes Adding</div>
+        <form action="addRoute.php" method="POST">
+          <div class="form_wrap">
+            <div class="input_wrap">
+              <label for="via_city">Via City</label>
+              <input type="text" id="via_city" name="via_city" placeholder="Via City" required>
+            </div>
+            <div class="input_wrap">
+              <label for="destination">Destination</label>
+              <input type="text" id="destination" name="destination" placeholder="Destination" required>
+            </div>
+            <div class="input_wrap">
+              <label for="bus_name">Bus Name</label>
+              <input type="text" id="bus_name" name="bus_name" placeholder="Bus Name" required>
+            </div>
+            <div class="input_wrap">
+              <label for="departure_date">Departure Date</label>
+              <input type="date" id="departure_date" name="departure_date" class="idclass" required>
+            </div>
+            <div class="input_wrap">
+              <label for="departure_time">Departure Time</label>
+              <input type="time" id="departure_time" name="departure_time" class="idclass" required>
+            </div>
+            <div class="input_wrap">
+              <label for="cost">Cost</label>
+              <input type="text" id="cost" name="cost" placeholder="Cost" class="idclass" required>
+            </div>
+            <div class="input_wrap">
+              <input type="submit" value="Add Route Now" class="submit_btn" name="routeAdd">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
