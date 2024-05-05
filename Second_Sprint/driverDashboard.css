@@ -1,0 +1,56 @@
+.adminTopic {
+    text-align: center;
+    color: #fff;
+}
+
+.sidebar2 {
+    margin-left: 250px;
+    padding: 20px;
+    color: #fff;
+}
+
+#profile,
+#assignedRoute {
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#profile h2,
+#assignedRoute h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#profile table {
+    width: 100%;
+    color: #fff;
+    border-spacing: 10px;
+}
+
+#profile th {
+    text-align: left;
+    font-weight: bold;
+}
+
+#assignedRoute p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
