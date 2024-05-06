@@ -1,112 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>User view EasyRide</title>
-  <!--cdn icon library -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="sidebar.css">
-<link rel="stylesheet" href="addbooking.css">
-  <style type="text/css">
-    body{
-      background-image: url("1.jpg");
-    }
-</style>
+    <meta charset="UTF-8">
+    <title>User View EasyRide</title>
+    <!-- cdn icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="addbooking.css">
+    <style>
+        body {
+            background-image: url("1.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+ 
+    </style>
 </head>
 <body>
-  <input type="checkbox" id="check">
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>
+            <img src="avatar.png" alt="Avatar" class="avatar">
+            <p>Username Here</p>
+        </header>
+        <ul>
+            <li><a href="viewBus.html">Ticket Booking</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="logout.html">Log out</a></li>
+        </ul>
+    </div>
+    <div class="sidebar2">
+        <h1 class="adminTopic">Book Your Ticket</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Via City</th>
+                <th>Destination</th>
+                <th>Bus Name</th>
+                <th>Departure Date</th>
+                <th>Departure Time</th>
+                <th>Cost</th>
+                <th>Departure Status</th>
+                <th>Booking</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>City A</td>
+                <td>Destination X</td>
+                <td>Bus Alpha</td>
+                <td>2024-04-01</td>
+                <td>08:00 AM</td>
+                <td>$20</td>
+                <td>
+                    <button class="btnStatus btnDeparted" onclick="sendNotification('Bus has departed')">Departed</button>
+                    <button class="btnStatus btnWait" onclick="sendNotification('Please wait, not departed')">Not Departed</button>
+                </td>
+                <td><a href="AddBooking.html?id=1" class="btnPolicy">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>City B</td>
+                <td>Destination Y</td>
+                <td>Bus Bravo</td>
+                <td>2024-04-02</td>
+                <td>09:00 AM</td>
+                <td>$25</td>
+                <td>
+                    <button class="btnStatus btnDeparted" onclick="sendNotification('Bus has departed')">Departed</button>
+                    <button class="btnStatus btnWait" onclick="sendNotification('Please wait, not departed')">Not Departed</button>
+                
+                </td>
+                <td><a href="AddBooking.html?id=2" class="btnPolicy">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>City C</td>
+                <td>Destination Z</td>
+                <td>Bus Sigma</td>
+                <td>2024-04-23</td>
+                <td>09:00 AM</td>
+                <td>$15</td>
+                <td>
+                    <button class="btnStatus btnDeparted" onclick="sendNotification('Bus has departed')">Departed</button>
+                    <button class="btnStatus btnWait" onclick="sendNotification('Please wait, not departed')">Not Departed</button>
+                    
+                </td>
+                <td><a href="AddBooking.html?id=3" class="btnPolicy">Book Now</a></td>
+            </tr>
+        </table>
+    </div>
 
-  <label for="check">
-<i class="fa fa-bars" id="btn"></i>
-<i class="fa fa-times" id="cancle"></i>
-
-
-  </label>
-  <div class="sidebar">
-<header>
-<img src="avatar.png" alt="Avatar" class="avatar">
-<p>Username Here</p>
-</header>
-<ul>
-
-
-    <li><a href="viewBus.html">Ticket Booking</a></li>
-    <li><a href="profile.html">Profile</a></li>
-    <li><a href="logout.html">Log out</a></li>
-  <!--  <li><a href="#">Event</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Service</a></li>
-    <li><a href="#">Contact</a></li>-->
-    </ul>
- <!--  <li>
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="fa fa-youtube"></i></a>
-        
-      </div>
-    </li>-->
-   
-
-</div>
-
-
-
-<div class="sidebar2">
-
-
-    <h1 class="adminTopic">Book Your Ticket</h1>
-
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Via City</th>
-        <th>Destination</th>
-        <th>Bus Name</th>
-        <th>Departure Date</th>
-        <th>Departure Time</th>
-        <th>Cost</th>
-        <th>Booking</th>
-    </tr>
-
-    <tr>
-        <td>1</td>
-        <td>City A</td>
-        <td>Destination X</td>
-        <td>Bus Alpha</td>
-        <td>2024-04-01</td>
-        <td>08:00 AM</td>
-        <td>$20</td>
-        <td><a href="AddBooking.html?id=1">Book Now</a></td>
-    </tr>
-
-    <tr>
-        <td>2</td>
-        <td>City B</td>
-        <td>Destination Y</td>
-        <td>Bus Bravo</td>
-        <td>2024-04-02</td>
-        <td>09:00 AM</td>
-        <td>$25</td>
-        <td><a href="AddBooking.html?id=2">Book Now</a></td>
-    </tr>
-
-    
-    <tr>
-      <td>3</td>
-      <td>City C</td>
-      <td>Destination Z</td>
-      <td>Bus Sigma</td>
-      <td>2024-04-23</td>
-      <td>09:00 AM</td>
-      <td>$15</td>
-      <td><a href="AddBooking.html?id=3">Book Now</a></td>
-  </tr>
-
-</table>
-
-</div>
-
+    <script>
+        function sendNotification(message) {
+            alert(message);
+        }
+    </script>
 </body>
 </html>
