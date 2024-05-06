@@ -2,24 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Driver Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="sidebar.css"> <!-- Add sidebar styles here -->
-    <link rel="stylesheet" href="driverDashboard.css"> <!-- External CSS file for driver dashboard -->
-    <style>
-        body {
-            background-image: url("1.jpg"); /* Replace with your image path */
-            background-position: center;
-            background-size: cover;
-            height: 100vh;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="driverDashboard.css">
 </head>
 <body>
     <input type="checkbox" id="check">
@@ -33,27 +19,67 @@
             <p>Driver Name</p> <!-- Replace with PHP variable for driver's name -->
         </header>
         <ul>
-            <li><a href="#profile">Profile</a></li>
+            <li><a href="driverProfile.html">Profile</a></li>
             <li><a href="driverLogout.html">Logout</a></li>
         </ul>
     </div>
     <div class="sidebar2">
-        <h1 class="adminTopic">Bus Driver Dashboard</h1>
-        <div id="profile">
-            <h2>Driver Profile</h2>
-            <table>
-                <tr><th>First Name:</th><td>John</td></tr> <!-- Replace with actual data -->
-                <tr><th>Last Name:</th><td>Doe</td></tr> <!-- Replace with actual data -->
-                <tr><th>Driver ID:</th><td>12345</td></tr> <!-- Replace with actual data -->
-                <tr><th>Phone Number:</th><td>123-456-7890</td></tr> <!-- Replace with actual data -->
-            </table>
-        </div>
-        <div id="assignedRoute">
-            <h2>Assigned Bus and Route</h2>
-            <p><strong>Bus Name:</strong> Express Bus</p> <!-- Replace with actual data -->
-            <p><strong>Route:</strong> City A to City B</p> <!-- Replace with actual data -->
-            <button class="btn" onclick="sendNotification('Departure')">Departure</button>
-            <button class="btn" onclick="sendNotification('Arrived')">Arrived at Destination</button>
+        <div class="container">
+            <h1 class="adminTopic">Bus Driver Dashboard</h1>
+            <div id="assignedRoute">
+                <h2>Assigned Bus and Route</h2>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Bus Name</th>
+                        <th>Via City</th>
+                        <th>Destination</th>
+                        <th>Departure Date</th>
+                        <th>Departure Time</th>
+                        <th>Departure Status</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Bus Alpha</td>
+                        <td>City A</td>
+                        <td>Destination X</td>
+                        <td>2024-04-01</td>
+                        <td>08:00 AM</td>
+                        <td>Not Departed</td> <!-- Replace status dynamically with PHP variable -->
+                        <td>
+                            <button class="btn" onclick="sendNotification('Departure')">Departure</button>
+                            <button class="btn" onclick="sendNotification('Arrived')">Arrived at Destination</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bus Bravo</td>
+                        <td>City B</td>
+                        <td>Destination Y</td>
+                        <td>2024-04-02</td>
+                        <td>09:00 AM</td>
+                        <td>Departed</td> <!-- Replace status dynamically with PHP variable -->
+                        <td>
+                            <button class="btn" onclick="sendNotification('Departure')">Departure</button>
+                            <button class="btn" onclick="sendNotification('Arrived')">Arrived at Destination</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Bus Sigma</td>
+                        <td>City C</td>
+                        <td>Destination Z</td>
+                        <td>2024-04-23</td>
+                        <td>09:00 AM</td>
+                        <td>Not Departed</td> <!-- Replace status dynamically with PHP variable -->
+                        <td>
+                            <button class="btn" onclick="sendNotification('Departure')">Departure</button>
+                            <button class="btn" onclick="sendNotification('Arrived')">Arrived at Destination</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
