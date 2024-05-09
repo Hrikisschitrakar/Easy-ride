@@ -9,7 +9,7 @@ include("connection.php");
   <title>Admin Panel of Bus Services</title>
   <!-- Link to external CSS files -->
   <link rel="stylesheet" href="sidebar.css">
-  <link rel="stylesheet" href="admin_dashboard.css">
+  <link rel="stylesheet" href="Admin_dashboard.css">
   <!--cdn icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -20,12 +20,12 @@ include("connection.php");
     <i class="fa fa-times" id="cancle"></i>
   </label>
   <div class="sidebar">
-    <header><img src="adminprofile.jpg">
+    <header><img src="iconpic.jpg">
       <p><?php echo $_SESSION['username']; ?></p>
     </header>
     <ul>
       <li><a href="admin_dashboard.php">Manage Routes</a></li>
-      <li><a href="profile.php">Manage Profiles</a></li>
+      <li><a href="manageprofiles.php">Manage Profiles</a></li>
       <li><a href="ManagesBuses.php">Manage Buses</a></li>
       <li><a href="BookingManage.php">Booking People</a></li>
       <li><a href="PaymentManage.php">Transaction</a></li>

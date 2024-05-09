@@ -8,12 +8,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>admin Panel suraksha</title>
+    <title>Easyride Add bus</title>
 </head>
 <body>
 
    <?php// echo "welcome:".  $_SESSION['id']; ?>
-   <a href="adminLogout.php"><button class="btnHome">logout</button></a>
+   <a href="loginMenu.php"><button class="btnHome">logout</button></a>
 
 </body>
 </html>
@@ -24,7 +24,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Routes adding</title>
+  <title>Bus adding</title>
   <!--cdn icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="sidebar.css">
@@ -42,7 +42,7 @@
 
   </label>
   <div class="sidebar">
-<header><img src="adminprofile.jpg">
+<header><img src="iconpic.jpg">
 <p><?php echo $_SESSION['username']; ?></p>
 </header>
 <ul>
@@ -83,9 +83,14 @@
   if(isset($_POST['AddBus'])){
 
      
-       //$id=$_POST['id'];
-       $nameOFbus=$_POST['bus_name'];
-       $tel=$_POST['tel'];
+       $id=$_POST['id'];
+       $user_id=$_POST['user_id'];
+       $Driver_Name=$_POST['Driver_Name'];
+       $Bus_Name=$_POST['Bus_Name'];
+       $Telephone_no=$_POST['Telephone_no'];
+       $Email=$_POST['Email'];
+       $Password=$_POST['Password'];
+
        
     
 
@@ -100,10 +105,10 @@
           {
 
 
-              $stmt=$conn->prepare("INSERT INTO bus(Bus_Name,Tel) VALUES(?,?)");
+              $stmt=$conn->prepare("INSERT INTO bus_driver(id,user_id,Driver_Name,Bus_Name,Telephone_no,Email,Password) VALUES(?,?,?,?,?,?,?)");
               //table3 is the table name//
 
-              $stmt->bind_param("ss", $nameOFbus,$tel);
+              $stmt->bind_param("ssssssi", $id,$user_id,$Driver_Name,$Bus_Name,$Telephone_no,$Email,$Password);
 
               $stmt->execute();
               
@@ -137,15 +142,45 @@
     <form action="#" method="POST">
       <div class="form_wrap">
         
-        <div class="input_wrap">
+
+      <div class="input_wrap">
           <label for="title">Bus Name</label>
-          <input type="text" id="title" name="bus_name" placeholder="Bus Name" required>
+          <input type="text" id="title" name="Bus_Name" placeholder="Bus Name" required>
+        </div>
+
+        <div class="input_wrap">
+                            <label for="title">Select Driver</label>
+                            <select id="title" name="Driver_Name"  class="idclass" required>
+                                <?php 
+                                $sql = "SELECT Driver_Name FROM bus_driver";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo "<option value='".$row['Driver_Name']."'>".$row['Driver_Name']."</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+        <div class="input_wrap">
+          <label for="title">Bus Id</label>
+          <input type="number" id="title" name="user_id" placeholder="Bus Id" class="idclass" required>
+        </div>
+
+        <div class="input_wrap">
+          <label for="title">Telephone no</label>
+          <input type="number" id="title" name="Telephone_no" placeholder="Telephone no" class="idclass" required>
+        </div>
+
+        <div class="input_wrap">
+          <label for="title">Email</label>
+          <input type="email" id="title" name="Email" placeholder="Email" class="idclass" required>
         </div>
 
 
         <div class="input_wrap">
-          <label for="title">Telephone</label>
-          <input type="text" id="title" name="tel" placeholder="Tel" required>
+          <label for="title">Password</label>
+          <input type="password" id="title" name="Password" placeholder="Password" required>
         </div>
 
         <div class="input_wrap">

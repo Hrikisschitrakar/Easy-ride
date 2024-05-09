@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>admin Panel suraksha</title>
+	<title>Easy Ride</title>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Panel Suraksha</title>
+  <title>Easy Ride</title>
   <!--cdn icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="sidebar.css">
@@ -43,7 +43,7 @@
 
   </label>
   <div class="sidebar">
-<header><img src="adminprofile.jpg">
+<header><img src="iconpic.jpg">
 <p><?php echo $_SESSION['username']; ?></p>
 </header>
 <ul>
@@ -51,7 +51,7 @@
 
    
     <li><a href="admin_dashboard.php">Manage Routes</a></li>
-    <li><a href="manageProfies.php">Manages Profiles</a></li>
+    <li><a href="manageprofiles.php">Manages Profiles</a></li>
     <li><a href="ManagesBuses.php">Manage Buses</a></li>
     <li><a href="BookingManage.php">Booking People</a></li>
     <li><a href="PaymentManage.php">Transaction</a></li>
@@ -85,14 +85,14 @@
        if(isset($_POST['routeUpdate'])){
 
        $id=$_POST['id'];
-       $via_city=$_POST['Via_city'];
+       $via_city=$_POST['via_city'];
        $destination=$_POST['destination'];
        $bus_name=$_POST['bus_name'];
        $dep_date=$_POST['departure_date'];
        $dep_time=$_POST['departure_time'];
         $cost=$_POST['cost'];
 
-       $query="UPDATE `route` SET Via_city='$via_city',destination='$destination',bus_name='$bus_name',departure_date='$dep_date',departure_time='$dep_time',cost='$cost' where id=$id";
+       $query="UPDATE `route` SET via_city='$via_city',destination='$destination',bus_name='$bus_name',departure_date='$dep_date',departure_time='$dep_time',cost='$cost' where id=$id";
 
 
        $query_run=mysqli_query($conn,$query);
@@ -149,20 +149,50 @@
         </div>
         
         <div class="input_wrap">
-          <label for="title">Via_city</label>
-          <input type="text" id="title" name="Via_city" placeholder="Via_city" required>
-        </div>
+                            <label for="title">Select City</label>
+                            <select id="title" name="via_city"  class="idclass" required>
+                                <?php 
+                                $sql = "SELECT via_city FROM route";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo "<option value='".$row['via_city']."'>".$row['via_city']."</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
 
 
-        <div class="input_wrap">
-          <label for="title">Destination</label>
-          <input type="text" id="title" name="destination" placeholder="Destination" required>
-        </div>
+                        <div class="input_wrap">
+                            <label for="title">Select Destination</label>
+                            <select id="title" name="destination"  class="idclass" required>
+                                <?php 
+                                $sql = "SELECT destination FROM route";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo "<option value='".$row['destination']."'>".$row['destination']."</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
 
-         <div class="input_wrap">
-          <label for="title">Bus Name</label>
-          <input type="text" id="title" name="bus_name" placeholder="Bus Name" required>
-        </div>
+                        <div class="input_wrap">
+                            <label for="title">Select Bus</label>
+                            <select id="title" name="bus_name"  class="idclass" required>
+                                <?php 
+                                $sql = "SELECT Bus_Name FROM bus";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo "<option value='".$row['Bus_Name']."'>".$row['Bus_Name']."</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
 
 
          <div class="input_wrap">

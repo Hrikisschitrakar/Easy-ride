@@ -42,7 +42,7 @@
 
   </label>
   <div class="sidebar">
-<header><img src="adminprofile.jpg">
+<header><img src="iconpic.jpg">
 <p><?php echo $_SESSION['username']; ?></p>
 </header>
 <ul>
@@ -81,11 +81,15 @@
        if(isset($_POST['BusUpdate'])){
 
        $id=$_POST['id'];
-       $nameOFbus=$_POST['bus_name'];
-       $tel=$_POST['tel'];
+       $user_id=$_POST['user_id'];
+       $Bus_Name=$_POST['Bus_Name'];
+       $Driver_Name=$_POST['Driver_Name'];
+      $Telephone_no=$_POST['Telephone_no'];
+      $Email=$_POST['Email'];
+      $Password=$_POST['Password'];
        
 
-       $query="UPDATE `bus` SET Bus_Name='$nameOFbus',tel='$tel' where id=$id";
+       $query="UPDATE `bus_driver` SET user_id='$user_id',Bus_Name='$Bus_Name',Driver_Name='$Driver_Name',Telephone_no='$Telephone_no',Email='$Email',Password='$Password' where id=$id";
 
 
        $query_run=mysqli_query($conn,$query);
@@ -157,8 +161,23 @@
 
 
         <div class="input_wrap">
+          <label for="title">Driver_Name</label>
+          <input type="text" id="title" name="Driver_Name" placeholder="Driver Name" required>
+        </div>
+
+        <div class="input_wrap">
           <label for="title">Telephone</label>
-          <input type="text" id="title" name="tel" placeholder="Tel" required>
+          <input type="number" id="title" name="Telephone_no" placeholder="Driver Name" class="idclass" required>
+        </div>
+
+        <div class="input_wrap">
+          <label for="title">Email</label>
+          <input type="email" id="title" name="Email" placeholder="Email" class="idclass" required>
+        </div>
+
+        <div class="input_wrap">
+          <label for="title">Password</label>
+          <input type="password" id="title" name="Password" placeholder="Password" required>
         </div>
 
        

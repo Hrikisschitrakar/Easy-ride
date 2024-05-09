@@ -1,46 +1,47 @@
 <?php 
 session_start();
 
-include("connection.php");
-include("function.php");
+       include("connection.php");
+       include("function.php");
 
-$user_data = check_login($conn);
+       $user_data_admin = check_login_admin($conn);
 
 ?>
 
 <!DOCTYPE html>
+
 <html>
 <head>
     <title>Online Bus Ticket System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="admin_profile.css">
+    <link rel="stylesheet" href="admin_profiles.css">
 </head>
 <body> 
-    <div class="usern"><b><font color="#fff"> Hello !!! <?php echo $user_data['username'];?></font></b></div>
-    <div class="wrapper">
+    <div class="user-greeting"><b><font color="#fff"> Hello !!! <?php echo $user_data_admin['username'];?></font></b></div>
+    <div class="content-wrapper">
         <div class="left">
-            <img src="adminprofile.jpg" alt="user" width="200">
-            <button class="btn4">Upload image </button><br>
+            <img src="iconpic.jpg" alt="user" width="100" class="avatar">
             <br>
-            <a href="admin_dashboard.php"><button class="btn4">Home </button></a>
+            <a href="admin_dashboard.php"><button class="btn home-btn">Home </button></a>
         </div>
     </div>
 
     <div class="right">
-        <h3>Account Information</h3><hr/><br/>  
-        <p>User name:- <?php echo $user_data['username'];?>   </p><br>
-        <p>Email:- <?php echo $user_data['email'];?> </p>
-        <br>
-        <p>First name:-<?php echo $user_data['First_Name'];?></p><br>
-        <p>Last name:-<?php echo $user_data['Last_Name'];?></p><br>
+        <h2>Account Information</h2><hr/>
+        <div class="info">
+        <p><strong>User name:- <?php echo $user_data_admin['username'];?>   </p><br>
+        <p><strong>Password:- <?php echo $user_data_admin['password'];?> </p></div> 
+       
         
-        <h3>LOGOUT & SECURITY</h3><hr/><br>
-        <br><a href="updateProfile.php?id=<?php echo $user_data['id'];?>">
-        <button class="btn3">Update</button></a>
-        <a href="logout.php">
-        <button class="btn3">Logout</button></a>
-        <a href="deleteProfile.php?id=<?php echo $user_data['id'];?>">
-        <button class="btn3">Delete</button></a>
+        <h2>LOGOUT & SECURITY</h2><hr>
+        <br>
+        <div class='actions'>
+        <a href="updateProfile.php?id=<?php echo $user_data_admin['id'];?>">
+        <button class="btn update-btn">Update</button></a>
+        <a href="loginMenu.php">
+        <button class="btn logout-btn">Logout</button></a>
+        <a href="deleteProfile.php?id=<?php echo $user_data_admin['id'];?>">
+        <button class="btn delete-btn">Delete</button></a></div>
     </div>
 </body>
 </html>

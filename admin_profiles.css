@@ -1,0 +1,155 @@
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: black; 
+}
+
+/* Header Styles */
+header {
+  background-color: #000000; 
+  color: #fff;
+  padding: 10px 0; 
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 32px; 
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 30px; /* Increased margin */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px; /* Increased font size */
+}
+
+/* Container Styles */
+.container {
+  max-width: 1400px; 
+  margin: 50px auto; 
+  padding: 0 50px; 
+}
+
+.user-greeting {
+  font-size: 24px; 
+  margin-bottom: 30px; 
+  color: white;
+}
+
+.content-wrapper {
+  display: flex;
+}
+
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3A5795;
+  padding: 30px;
+  border-radius: 15px; /* Increased border-radius */
+  color: #fff;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 15px 30px; 
+  margin-top: 20px; 
+  border: none;
+  border-radius: 8px; 
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px; 
+}
+
+.upload-btn {
+  background-color: #F9522E;
+}
+
+.home-btn {
+  background-color: #6e83b3;
+}
+
+/* Avatar Styles */
+.avatar {
+  margin-top: 20px; /* Adjusted margin */
+}
+
+
+.right {
+  flex: 2;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px; /* Increased border-radius */
+  color: #333;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 15px 30px; /* Increased padding */
+  margin-top: 20px; /* Increased margin */
+  border: none;
+  border-radius: 8px; /* Increased border-radius */
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px; /* Increased font size */
+}
+
+.upload-btn {
+  background-color: #F9522E;
+}
+
+.home-btn {
+  background-color: #6e83b3;
+}
+
+.update-btn,
+.logout-btn,
+.delete-btn {
+  background-color: #F9522E;
+  margin-right: 20px; /* Increased margin */
+}
+
+.update-btn:hover,
+.logout-btn:hover,
+.delete-btn:hover,
+.upload-btn:hover,
+.home-btn:hover {
+  background-color: #1b9bff;
+}
+
+/* Right Section Styles */
+.right {
+  flex: 2;
+  background-color: #8b8989;
+  padding: 30px;
+  border-radius: 15px; /* Increased border-radius */
+  color: #333;
+  border: 2px solid #ccc; /* Added border */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
+}
