@@ -151,12 +151,17 @@
 
         <div class="input_wrap">
           <label for="title">Id</label>
-          <input type="number" id="title" name="id" class="idclass" value="<?php echo $_GET['id'];?>">
+          <input type="number" id="title" name="id" class="idclass" value="<?php echo $_GET['id'];?>" required>
+        </div>
+
+        <div class="input_wrap">
+          <label for="title">user Id</label>
+          <input type="number" id="title" name="user_id" class="idclass" required>
         </div>
         
         <div class="input_wrap">
           <label for="title">Bus Name</label>
-          <input type="text" id="title" name="bus_name" placeholder="Bus Name" required>
+          <input type="text" id="title" name="Bus_Name" placeholder="Bus Name" required>
         </div>
 
 
