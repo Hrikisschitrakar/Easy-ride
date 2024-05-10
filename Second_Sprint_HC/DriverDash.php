@@ -31,7 +31,7 @@ session_start();
         </header>
         <ul>
             <li><a href="driverProfile.php">Profile</a></li>
-            <li><a href="driverLogout.html">Logout</a></li>
+            <li><a href="home.php">Logout</a></li>
         </ul>
     </div>
     <div class="sidebar2">
