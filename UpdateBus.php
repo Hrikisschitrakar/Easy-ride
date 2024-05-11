@@ -166,13 +166,22 @@
 
 
         <div class="input_wrap">
-          <label for="title">Driver_Name</label>
-          <input type="text" id="title" name="Driver_Name" placeholder="Driver Name" required>
-        </div>
-
+                            <label for="title">Select Driver</label>
+                            <select id="title" name="Driver_Name"  class="idclass" required>
+                                <?php 
+                                $sql = "SELECT Driver_Name FROM bus_driver";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo "<option value='".$row['Driver_Name']."'>".$row['Driver_Name']."</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
         <div class="input_wrap">
           <label for="title">Telephone</label>
-          <input type="number" id="title" name="Telephone_no" placeholder="Driver Name" class="idclass" required>
+          <input type="number" id="title" name="Telephone_no" placeholder="Telephone no" class="idclass" required>
         </div>
 
         <div class="input_wrap">
