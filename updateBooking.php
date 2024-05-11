@@ -82,14 +82,14 @@
 
        if(isset($_POST['updateBooking'])){
 
-     $id=$_POST['id'];  
+     
      $passenger=$_POST['passenger_name'];
      $telephone=$_POST['telephone'];
      $email=$_POST['email'];
      $boarding_place=$_POST['boarding_place'];
      $Your_destination=$_POST['Your_destination'];
 
-       $query="UPDATE `booking` SET passenger_name='$passenger',telephone='$telephone',email='$email',boarding_place='$boarding_place',Your_destination='$Your_destination' where id=$id";
+       $query="UPDATE `booking` SET passenger_name='$passenger',telephone='$telephone',email='$email',boarding_place='$boarding_place',Your_destination='$Your_destination'";
 
 
        $query_run=mysqli_query($conn,$query);
@@ -151,11 +151,7 @@
       <div class="form_wrap">
 
 
-        <div class="input_wrap">
-          <label for="title">Id</label>
-          <input type="number" id="title" name="id" class="idclass" value="<?php echo $_GET['id'];?>">
-        </div>
-        
+               
         <div class="input_wrap">
           <label for="title">Passenger Name</label>
           <input type="text" id="title" name="passenger_name" placeholder="Passenger Name" required>
@@ -173,10 +169,10 @@
         </div>
 
         <div class="input_wrap">
-                            <label for="title">Select Bus</label>
-                            <select id="title" name="boarding_place"  class="idclass" required>
+                            <label for="title">Select Boarding Place</label>
+                            <select id="title" name="boarding_place"  placeholder="Select Boarding place" class="idclass" required>
                                 <?php 
-                                $sql = "SELECT via_city FROM route";
+                                $sql = "SELECT via_city FROM location";
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
@@ -191,11 +187,11 @@
                             <label for="title">Select Your Destination</label>
                             <select id="title" name="Your_destination"  class="idclass" required>
                                 <?php 
-                                $sql = "SELECT destination FROM route";
+                                $sql = "SELECT Destination FROM location";
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
-                                        echo "<option value='".$row['destination']."'>".$row['destination']."</option>";
+                                        echo "<option value='".$row['Destination']."'>".$row['Destination']."</option>";
                                     }
                                 }
                                 ?>

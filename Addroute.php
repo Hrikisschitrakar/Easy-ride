@@ -97,7 +97,7 @@ session_start();
                             <label for="title">Select City/label>
                             <select id="title" name="via_city"  class="idclass" required>
                                 <?php 
-                                $sql = "SELECT via_city FROM route";
+                                $sql = "SELECT via_city FROM location";
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
@@ -112,11 +112,11 @@ session_start();
                             <label for="title">Select Destination</label>
                             <select id="title" name="destination"  class="idclass" required>
                                 <?php 
-                                $sql = "SELECT destination FROM route";
+                                $sql = "SELECT Destination FROM location";
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
-                                        echo "<option value='".$row['destination']."'>".$row['destination']."</option>";
+                                        echo "<option value='".$row['Destination']."'>".$row['Destination']."</option>";
                                     }
                                 }
                                 ?>

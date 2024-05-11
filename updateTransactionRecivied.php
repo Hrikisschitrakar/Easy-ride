@@ -82,7 +82,7 @@
 
        if(isset($_POST['updateTransaction'])){
 
-       $id=$_POST['id'];  
+       
        $amount=$_POST['amount'];
        $name=$_POST['name'];
       $email=$_POST['email'];
@@ -90,7 +90,7 @@
       $city=$_POST['city'];
       
 
-       $query="UPDATE `payment` SET amount='$amount',name='$name',email='$email',address='$address',city='$city' where id=$id";
+       $query="UPDATE `payment` SET amount='$amount',name='$name',email='$email',address='$address',city='$city' ";
 
 
        $query_run=mysqli_query($conn,$query);
@@ -152,10 +152,7 @@
       <div class="form_wrap">
 
 
-        <div class="input_wrap">
-          <label for="title">Id</label>
-          <input type="number" id="title" name="id" class="idclass" value="<?php echo $_GET['id'];?>">
-        </div>
+        
 
         <div class="input_wrap">
           <label for="title">Paid Amount</label>
@@ -172,7 +169,7 @@
                             <label for="title">Select Address</label>
                             <select id="title" name="address"  class="idclass" required>
                                 <?php 
-                                $sql = "SELECT via_city FROM route";
+                                $sql = "SELECT via_city FROM location";
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
@@ -192,11 +189,11 @@
                             <label for="title">Select Destination</label>
                             <select id="title" name="city"  class="idclass" required>
                                 <?php 
-                                $sql = "SELECT destination FROM route";
+                                $sql = "SELECT Destination FROM location";
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
                                     while($row = $result->fetch_assoc()) {
-                                        echo "<option value='".$row['destination']."'>".$row['destination']."</option>";
+                                        echo "<option value='".$row['Destination']."'>".$row['Destination']."</option>";
                                     }
                                 }
                                 ?>
