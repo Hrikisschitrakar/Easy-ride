@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3006
--- Generation Time: May 09, 2024 at 08:45 PM
+-- Generation Time: May 11, 2024 at 04:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -60,7 +60,7 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id`, `passenger_name`, `telephone`, `email`, `boarding_place`, `Your_destination`) VALUES
-(15, 'Chandra Limbu', '98399957243', 'raman444@gmail.com', 'Birgunj', 'Janakpur');
+(15, 'Joe Khalid', '985068594J', 'joe@gmail.com', 'Janakpur', 'Dharan');
 
 -- --------------------------------------------------------
 
@@ -79,12 +79,12 @@ CREATE TABLE `bus` (
 --
 
 INSERT INTO `bus` (`id`, `Bus_Name`, `Tel`) VALUES
-(6, 'Priya yatayat', '9842633046'),
-(7, 'nepal yatayat', '98427033698'),
+(6, 'Swyambhu yatayat', '9842633046'),
+(7, 'Nepal yatayat', '98427033698'),
 (8, 'Pramdip Yatayat', '9842633046'),
-(9, 'Safari Yatayat', '98663745'),
+(9, 'NewRoad Yatayat', '98663745'),
 (10, 'Bullet Yatayat', '988695784'),
-(12, 'Bradesh Yatayat', '9894875994'),
+(12, 'Pradesh Yatayat', '9894875994'),
 (17, 'Jamuna Yatayat', '9849509685');
 
 -- --------------------------------------------------------
@@ -108,13 +108,40 @@ CREATE TABLE `bus_driver` (
 --
 
 INSERT INTO `bus_driver` (`id`, `user_id`, `Driver_Name`, `Bus_Name`, `Telephone_no`, `Email`, `Password`) VALUES
-(2, 58695, 'skurash shrestha', 'nepal yatayat', 9845069343, 'skura@gamil.com', 869785),
-(4, 99223, 'Shyam Shrestha', 'Priya yatayat', 9845069343, 'raman444@gmail.com', 0),
-(5, 20039, 'Hrikkis Chitrakar', 'New Yatayat', 9859489065, 'Hrikkischtra@gmail.com', 894893),
-(6, 99865, 'Chandra rajbanshi', 'nepal yatayat', 984450994, 'chandra@gmail.com', 689705),
-(9, 48937, 'Simu Shrestha', 'Priya yatayat', 9845069343, 'sumu@gmail.com', 86984),
-(10, 58695, 'skurash shrestha', 'New Yatayat', 9845069343, 'Pukar@gamil.com', 4785783),
-(16, 99865, 'Hrikkis Chitrakar', 'helloyr', 99389499892, 'haku@gamil.com', 3899483);
+(1, 68879, 'Driver AI', 'Swyambhu yatayat', 996805543, 'AI444@gmail.com', 6897906),
+(2, 58695, 'Ghaley Bahadur Shrestha', 'Bullet Yatayat', 9859489065, 'are44@gmail.com', 94093),
+(3, 78995, 'Shyam Shrestha', 'My Yatayat', 9845069343, 'Ghalay@gamil.com', 6899586),
+(4, 68975, 'Adarsha Karki', 'New Yatayat', 9842633046, 'Shrestha@gmail.com', 699706),
+(5, 495804, 'Vinit Shrestha', 'Dolphin Yatayat', 984050065, 'vinit@gmail.com', 5899685);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `location`
+--
+
+CREATE TABLE `location` (
+  `id` int(11) NOT NULL,
+  `via_city` text NOT NULL,
+  `Destination` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`id`, `via_city`, `Destination`) VALUES
+(1, 'Kathmandu', 'Pokhara'),
+(2, 'Lalitpur (Patan)', 'Lalitpur (Patan)'),
+(3, 'Bhaktapur', 'Bhaktapur'),
+(4, 'Biratnagar', 'Biratnagar'),
+(5, 'Birgunj', 'Janakpur'),
+(6, 'Janakpur', 'Birgunj'),
+(7, 'Butwal', 'Dharan'),
+(8, 'Dharan', 'Butwal'),
+(9, 'Birtamod', 'Bharatpur'),
+(10, 'Bharatpur', 'Birtamod'),
+(11, 'Pokhara', 'Kathmandu');
 
 -- --------------------------------------------------------
 
@@ -143,7 +170,7 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`id`, `amount`, `name`, `email`, `address`, `city`, `state`, `zip_code`, `card_name`, `card_number`, `exp_month`, `exp_year`, `cvv`) VALUES
-(9, 899, 'Ambani', 'raman444@gmail.com', 'Lalitpur', 'Bhaktapur', 'india', 12345, 'hrikiss', '111222222333', 'Janauray', '2024', 1234);
+(9, 700, 'Akash Tamang', 'Akash@gmail.com', 'Janakpur', 'Birgunj', 'india', 12345, 'hrikiss', '111222222333', 'Janauray', '2024', 1234);
 
 -- --------------------------------------------------------
 
@@ -166,12 +193,11 @@ CREATE TABLE `route` (
 --
 
 INSERT INTO `route` (`id`, `via_city`, `destination`, `bus_name`, `departure_date`, `departure_time`, `cost`) VALUES
-(8, 'Lalitpur', 'Bhaktapur', 'Priya yatayat', '2024-05-17', '11:38:00.000000', '6000'),
-(11, 'Birgunj', 'Janakpur', 'Priya Yatayat', '2024-05-23', '04:09:49.000000', '300'),
-(12, 'Lalitpur', 'Bhaktapur', 'Priya yatayat', '2024-05-10', '22:35:00.000000', '200'),
-(13, 'Ilam', 'Chituwan', 'nepal yatayat', '2024-05-10', '23:37:00.000000', '500'),
-(14, 'Dharan', 'Biratnagar', 'Pramdip Yatayat', '2024-05-16', '18:43:00.000000', '400'),
-(16, 'Nepalgunj', 'Patan', 'Lubmini', '2024-05-17', '10:13:10.489000', '200');
+(1, 'Bhaktapur', 'Janakpur', 'Swyambhu yatayat', '2024-05-24', '20:12:00.000000', '200'),
+(2, 'Dharan', 'Biratnagar', 'Pramdip Yatayat', '2024-05-16', '18:43:00.000000', '400'),
+(3, 'Nepalgunj', 'Patan', 'Lubmini', '2024-05-17', '10:13:10.489000', '200'),
+(4, 'Dharan', 'Biratnagar', 'Safari Yatayat', '2024-05-11', '22:12:00.000000', '400'),
+(19, 'Lalitpur (Patan)', 'Birgunj', 'NewRoad Yatayat', '2024-05-28', '21:09:00.000000', '100');
 
 -- --------------------------------------------------------
 
@@ -210,10 +236,12 @@ CREATE TABLE `station_manager` (
 --
 
 INSERT INTO `station_manager` (`id`, `user_id`, `First_Name`, `Last_Name`, `username`, `email`, `password`) VALUES
-(1, 20039, 'Adarsha', 'Ambau', 'easyride bro', 'see44@gmail.com', '785594'),
-(4, 408560, 'Hero', 'Pramdip', 'Pramdip Hero', 'pramdipher@gmail.com', 'easy12345'),
-(10, 0, 'Tenz', 'Ambani', 'easyride bro', 'raman444@gmail.com', 'hello12345'),
-(21, 99865, 'Hero', 'Ambani', 'easyride bro', 'bro@gamil.com', '123330');
+(1, 20039, 'jakokb ', 'kakob', 'iamhero', 'hero@gamil.com', 'easy12345'),
+(2, 408560, 'Hero', 'Pramdip', 'Pramdip Hero', 'pramdipher@gmail.com', 'easy12345'),
+(3, 20039, 'Tenz', 'Shrestha', 'valTenz', 'Tenzing@gmail.com', '128994'),
+(4, 99865, 'Hero', 'Ambani', 'easyride bro', 'bro@gamil.com', '123330'),
+(5, 20039, 'Kaydae', 'Namaze', '68975', 'kaydae@gmail.com', 'iamkaydae123'),
+(6, 586907, 'Sikxiya ', 'Shrestha', 'Sikxiya', 'Sikxiya@gmail.com', '5896095');
 
 -- --------------------------------------------------------
 
@@ -361,7 +389,7 @@ ALTER TABLE `bus`
 -- AUTO_INCREMENT for table `bus_driver`
 --
 ALTER TABLE `bus_driver`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -373,7 +401,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `route`
 --
 ALTER TABLE `route`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `signup`
