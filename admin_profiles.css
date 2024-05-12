@@ -1,19 +1,21 @@
 /* Reset Styles */
 * {
-  margin: 0;
+  margin: 1px;
   padding: 0;
   box-sizing: border-box;
+  justify-content: center;
 }
 
 /* Body Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: black; 
+  background-image: url(8.jpg);
+  color: white; /* Added text color */
 }
 
 /* Header Styles */
 header {
-  background-color: #000000; 
+  background-color:url(8.jpg); 
   color: #fff;
   padding: 10px 0; 
 }
@@ -47,8 +49,12 @@ nav ul li a {
 /* Container Styles */
 .container {
   max-width: 1400px; 
-  margin: 50px auto; 
+  margin: 190px; 
   padding: 0 50px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
 }
 
 .user-greeting {
@@ -59,7 +65,9 @@ nav ul li a {
 
 .content-wrapper {
   display: flex;
+  margin-top: 20px; 
 }
+
 
 
 .left {
@@ -68,45 +76,9 @@ nav ul li a {
   align-items: center;
   background-color: #3A5795;
   padding: 30px;
-  border-radius: 15px; /* Increased border-radius */
+  border-radius: 15px;
   color: #fff;
 }
-
-/* Button Styles */
-.btn {
-  display: inline-block;
-  padding: 15px 30px; 
-  margin-top: 20px; 
-  border: none;
-  border-radius: 8px; 
-  cursor: pointer;
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px; 
-}
-
-.upload-btn {
-  background-color: #F9522E;
-}
-
-.home-btn {
-  background-color: #6e83b3;
-}
-
-/* Avatar Styles */
-.avatar {
-  margin-top: 20px; /* Adjusted margin */
-}
-
-
-.right {
-  flex: 2;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 15px; /* Increased border-radius */
-  color: #333;
-}
-
 /* Button Styles */
 .btn {
   display: inline-block;
@@ -128,6 +100,20 @@ nav ul li a {
   background-color: #6e83b3;
 }
 
+/* Avatar Styles */
+.avatar {
+  margin-top: 20px; /* Adjusted margin */
+}
+
+.right {
+  flex: 2;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  color: #333;
+  margin-left: 20px;
+}
+/* Button Styles */
 .update-btn,
 .logout-btn,
 .delete-btn {
@@ -143,13 +129,9 @@ nav ul li a {
   background-color: #1b9bff;
 }
 
-/* Right Section Styles */
-.right {
-  flex: 2;
-  background-color: #8b8989;
-  padding: 30px;
-  border-radius: 15px; /* Increased border-radius */
-  color: #333;
-  border: 2px solid #ccc; /* Added border */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
+.middle-box {
+  display: flex;
+  justify-content: center; /* Center align content horizontally */
+  align-items: center;
+  margin: 340px;
 }
