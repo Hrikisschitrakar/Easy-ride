@@ -7,13 +7,30 @@ include("function.php");
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Panel of Bus Services</title>
+  <title>Station Manger Panel of Bus Services</title>
   <!-- Link to external CSS files -->
   <link rel="stylesheet" href="sidebar.css">
   <link rel="stylesheet" href="StationDash.css">
   <!--cdn icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<style>
+    /* Style for contact info button */
+    .contact-info-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: orangered;
+      padding: 4px 6px;
+  border: 2px solid yellow;
+  border-radius: 7px;
+  background-color: red;
+  color: white;
+  margin: 20px auto;
+  display: block;
+  transition: background-color 0.3s;
+    }
+  </style>
 <body>
   <input type="checkbox" id="check">
   <label for="check">
@@ -21,6 +38,7 @@ include("function.php");
     <i class="fa fa-times" id="cancle"></i>
   </label>
   <div class="sidebar">
+  
     <header><img src="iconpic.jpg">
       <p><?php echo $_SESSION['username'];?></p>
     </header>
@@ -33,6 +51,9 @@ include("function.php");
     </ul>
   </div>
   <div class="sidebar2">
+    <!-- Contact Info button -->
+    <a href="Station_contact_table.php" class="contact-info-btn">Contact Info</a>
+    
     <h1 class="adminTopic">Manage Route of Buses</h1>
     <?php
       $sqlget="SELECT * FROM route";
@@ -68,7 +89,7 @@ include("function.php");
         ?>
         <td>
           <button>
-            <a href="updateRoute.php?id=<?php echo $row['id'];?>">
+            <a href="StationManagerUpdateRoute.php?id=<?php echo $row['id'];?>">
               Update
             </a>
           </button>
@@ -85,7 +106,7 @@ include("function.php");
       echo "</table>";
     ?>
     <br>
-    <a href="Addroute.php"><button class="btnPolicy">Add Route</button></a>
+    <a href="StationManagerAddRoute.php"><button class="btnPolicy">Add Route</button></a>
   </div>
 </body>
 </html>

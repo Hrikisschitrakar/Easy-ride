@@ -12,8 +12,26 @@ include("connection.php");
   <link rel="stylesheet" href="Admin_dashboard.css">
   <!--cdn icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Style for contact info button */
+    .contact-info-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: orangered;
+      padding: 4px 6px;
+  border: 2px solid yellow;
+  border-radius: 7px;
+  background-color: red;
+  color: white;
+  margin: 20px auto;
+  display: block;
+  transition: background-color 0.3s;
+    }
+  </style>
 </head>
 <body>
+  <!-- Sidebar -->
   <input type="checkbox" id="check">
   <label for="check">
     <i class="fa fa-bars" id="btn"></i>
@@ -32,7 +50,12 @@ include("connection.php");
       <li><a href="loginMenu.php">logout</a></li>
     </ul>
   </div>
+
+  <!-- Dashboard content -->
   <div class="sidebar2">
+    <!-- Contact Info button -->
+    <a href="contact_table.php" class="contact-info-btn">Contact Info</a>
+    
     <h1 class="adminTopic">Manage Route of Buses</h1>
     <?php
       $sqlget="SELECT * FROM route";
