@@ -1,42 +1,54 @@
 <?php 
+
 session_start();
+
 ?>
 <?php include("connection.php")?>
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Easy Ride</title>
+</head>
+<body>
+
+   <?php// echo "welcome:".  $_SESSION['id']; ?>
+   <a href="loginMenu.php"><button class="btnHome">logout</button></a>
+
+</body>
+</html>
+
+-->
+
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Routes adding</title>
-    <!-- CDN icon library -->
+    <!--cdn icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="signUp.css">
     <link rel="stylesheet" href="Addroute.css">
-    <script>
-        // JavaScript function to format time input
-        function formatTimeInput(input) {
-            // Remove milliseconds
-            input.value = input.value.replace(/\.\d{3}/, '');
-        }
-    </script>
+
 </head>
 <body>
     <input type="checkbox" id="check">
+
     <label for="check">
         <i class="fa fa-bars" id="btn"></i>
         <i class="fa fa-times" id="cancle"></i>
     </label>
-
     <div class="sidebar">
         <header><img src="iconpic.jpg">
             <p><?php echo $_SESSION['username']; ?></p>
         </header>
         <ul>
-            <li><a href="admin_dashboard.php">Manage Routes</a></li>
-            <li><a href="manageprofiles.php">Manage Profiles</a></li>
-            <li><a href="ManagesBuses.php">Manage Buses</a></li>
-            <li><a href="BookingManage.php">Booking People</a></li>
-            <li><a href="PaymentManage.php">Transaction</a></li>
+            <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+            <li><a href="StationManagesBuses.php">Manage Buses</a></li>
+            <li><a href="StationBusdriverprofile.php">Manage Bus Driver</a></li>
+            <li><a href="StationBookingManage.php">Booking People</a></li>
+            <li><a href="StationPaymentManage.php">Transaction</a></li>
             <li><a href="loginMenu.php">logout</a></li>
         </ul>
     </div>
@@ -61,19 +73,23 @@ session_start();
 
             if($check_result->num_rows > 0) {
                 // ID already exists, show a popup
-                echo '<script>alert("ID already exists. Please choose another ID."); window.location.href="Addroute.php";</script>';
+                echo '<script>alert("ID already exists. Please choose another ID."); window.location.href="StationManager_dashboard.php";</script>';
             } else {
                 // ID does not exist, proceed with inserting the data
-                $stmt=$conn->prepare("INSERT INTO route(id,via_city,destination,bus_name,departure_date,departure_time,cost) VALUES(?,?,?,?,?,?,?)");
-                $stmt->bind_param("ssssssi",$id,$via_city,$destination,$bus_name,$dep_date, $dep_time,$cost);
-
-                if($stmt->execute()) {
-                    echo '<script>alert("Successfully added bus!"); window.location.href="admin_dashboard.php";</script>';
+                if($conn->connect_error){
+                    die('Connection Failed :'.$conn->connect_error);
                 } else {
-                    echo '<script>alert("Failed to add bus. Please try again."); window.location.href="Addroute.php";</script>';
-                }
+                    $stmt=$conn->prepare("INSERT INTO route(id,via_city,destination,bus_name,departure_date,departure_time,cost) VALUES(?,?,?,?,?,?,?)");
+                    $stmt->bind_param("ssssssi",$id,$via_city,$destination,$bus_name,$dep_date, $dep_time,$cost);
 
-                $stmt->close();
+                    if($stmt->execute()) {
+                        echo '<script>alert("Successfully added bus!"); window.location.href="StationManager_dashboard.php";</script>';
+                    } else {
+                        echo '<script>alert("Failed to add bus. Please try again."); window.location.href="StationManager_dashboard.php";</script>';
+                    }
+
+                    $stmt->close();
+                }
             }
 
             $check_stmt->close();
@@ -90,7 +106,7 @@ session_start();
                     <div class="form_wrap">
                         <div class="input_wrap">
                             <label for="title">Id</label>
-                            <input type="number" id="title" name="id" placeholder="Id"  class="idclass" required>
+                            <input type="number" id="title" name="id" placeholder="id" class="idclass" required>
                         </div>
                         <div class="input_wrap">
                             <label for="title">Select City</label>
@@ -144,8 +160,7 @@ session_start();
 
                         <div class="input_wrap">
                             <label for="title">Departure Time</label>
-                            <!-- Add oninput event to call JavaScript function -->
-                            <input type="time" id="title" name="departure_time" placeholder="Time of Departure" class="idclass" oninput="formatTimeInput(this)" required>
+                            <input type="Time" id="title" name="departure_time" placeholder="Time of Departure" class="idclass" required>
                         </div>
 
                         <div class="input_wrap">
@@ -161,5 +176,6 @@ session_start();
             </div>
         </div>
     </div>
+
 </body>
 </html>

@@ -50,7 +50,7 @@
 
 
    
-    <li><a href="admin_dashboard.php">Manage Routes</a></li>
+<li><a href="admin_dashboard.php">Manage Routes</a></li>
     <li><a href="manageprofiles.php">Manages Profiles</a></li>
     <li><a href="ManagesBuses.php">Manage Buses</a></li>
     <li><a href="BookingManage.php">Booking People</a></li>
@@ -92,10 +92,20 @@
        $email=$_POST['email'];
         $password=$_POST['password'];
 
-       $query="UPDATE `station_manager` SET user_id='$user_id',First_Name='$First_Name',Last_Name='$Last_Name',username='$username',email='$email',password='$password' where id=$id";
+        $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/";
+        if (!preg_match($pattern, $password)) {
+            echo ("<script LANGUAGE='JavaScript'>
+                window.alert('Password must be at least 4 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
+                window.location.href='updateStationManagerProfile.php';
+                </script>");
+            exit();
+        }
 
-
-       $query_run=mysqli_query($conn,$query);
+        $query = "UPDATE `station_manager` SET user_id=?, First_Name=?, Last_Name=?, username=?, email=?, password=? WHERE id=?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ssssssi", $user_id, $First_Name, $Last_Name, $username, $email, $password, $id);
+        $query_run = $stmt->execute();
+        
 
       
   
@@ -112,7 +122,10 @@
 
                  
 */
-           echo '<script type="text/javascript">alert("Route udated sucessfully!!!")</script>';
+echo ("<script LANGUAGE='JavaScript'>
+window.alert('Succesfully Updated Statation Manager!!!');
+window.location.href='Stationmanagerprofile.php';
+</script>");
 
 
           }
@@ -142,15 +155,12 @@
 
     <form action="#" method="POST">
       <div class="form_wrap">
-
-        <div class="input_wrap">
-          <label for="title">Id</label>
-          <input type="number" id="title" name="id" class="idclass" value="<?php echo $_GET['id'];?>">
-        </div>
+      <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
+        
         
         <div class="input_wrap">
           <label for="title">user_id</label>
-          <input type="text" id="title" name="user_id" class="idclass"placeholder="user_id" required>
+          <input type="number" id="title" name="user_id" class="idclass"placeholder="user_id" required>
         </div>
 
 

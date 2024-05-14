@@ -24,7 +24,8 @@
     </header>
     <ul>
     <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
-      <li><a href="StationManageBuses.php">Manage Buses</a></li>
+    <li><a href="StationManageBuses.php">Manage Buses</a></li>
+    <li><a href="StationBusdriverprofile.php">Manage Bus Driver</a></li>
       <li><a href="StationBookingManage.php">Booking People</a></li>
       <li><a href="StationPaymentManage.php">Transaction</a></li>
       <li><a href="loginMenu.php">logout</a></li>
@@ -56,16 +57,16 @@
           <td><?php echo $row['user_id']; ?></td>
           <td><?php echo $row['Telephone_no']; ?></td>
           <td>
-            <button><a href="UpdateBus.php?id=<?php echo $row['id']; ?>">Update</a></button>
+            <button><a href="StationUpdateBus.php?id=<?php echo $row['id']; ?>">Update</a></button>
           </td>
           <td>
-            <button><a href="deleteBus.php?id=<?php echo $row['id']; ?>">Delete</a></button>
+            <button><a href="DeleteStationManageBuses.php?id=<?php echo $row['id']; ?>">Delete</a></button>
           </td>
         </tr>
       <?php endwhile; ?>
     </table>
     <br>
-    <a href="AddBus.php"><button class="btnPolicy">Add Bus</button></a>
+    <a href="StationAddBus.php"><button class="btnPolicy">Add Bus</button></a>
   </div>
 </body>
 </html>

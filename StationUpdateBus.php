@@ -49,11 +49,11 @@
 
 
     
-    <li><a href="admin_dashboard.php">Manage Routes</a></li>
-    <li><a href="manageprofiles.php">Manage Profiles</a></li>
-    <li><a href="ManagesBuses.php">Manage Buses</a></li>
-    <li><a href="BookingManage.php">Booking People</a></li>
-    <li><a href="PaymentManage.php">Transaction</a></li>
+    <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+    <li><a href="StationManageBuses.php">Manage Buses</a></li>
+    <li><a href="StationBusdriverprofile.php">Manage Bus Driver</a></li>
+    <li><a href="StationBookingManage.php">Booking People</a></li>
+    <li><a href="StationPaymentManage.php">Transaction</a></li>
     <li><a href="loginMenu.php">logout</a></li>
   <!--  <li><a href="#">Event</a></li>
     <li><a href="#">About</a></li>
@@ -112,7 +112,7 @@
            
                                  echo ("<script LANGUAGE='JavaScript'>
                       window.alert('Succesfully Bus updated!!!');
-                      window.location.href='ManagesBuses.php';
+                      window.location.href='StationManageBuses.php';
                       </script>");
                
 

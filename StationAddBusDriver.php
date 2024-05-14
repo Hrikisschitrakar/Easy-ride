@@ -48,7 +48,7 @@
         if (!preg_match($pattern, $Password)) {
             echo ("<script LANGUAGE='JavaScript'>
                 window.alert('Password must be at least 4 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
-                window.location.href='addbusdriver.php';
+                window.location.href='StationAddBusDriver.php';
                 </script>");
             exit();
         }
@@ -63,13 +63,13 @@
                 if ($stmt->execute()) {
                     echo ("<script LANGUAGE='JavaScript'>
                     window.alert('Successfully Bus Driver Added!!!');
-                    window.location.href='Busdriverprofile.php';
+                    window.location.href='StationBusdriverprofile.php';
                     </script>");
                 }
             } catch (mysqli_sql_exception $e) {
                 echo ("<script LANGUAGE='JavaScript'>
                 window.alert('This ID is already present. Please insert a new ID.');
-                window.location.href='addbusdriver.php';
+                window.location.href='StationAddBusDriver.php';
                 </script>");
             }
 

@@ -6,9 +6,10 @@ include("connection.php");
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Station Booking Manage</title>
+  <title>Admin Panel of Bus Services</title>
+  <!-- Link to external CSS files -->
   <link rel="stylesheet" href="sidebar.css">
-  <link rel="stylesheet" href="BookingManage.css">
+  <link rel="stylesheet" href="managebuses.css">
   <!--cdn icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -23,55 +24,59 @@ include("connection.php");
       <p><?php echo $_SESSION['username']; ?></p>
     </header>
     <ul>
-    <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+      <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
       <li><a href="StationManageBuses.php">Manage Buses</a></li>
-      <li><a href="StationbusDriverprofile.phph">Manage Bus Driver</a></li>
+      <li><a href="StationBusdriverprofile.php">Manage Bus Driver</a></li>
       <li><a href="StationBookingManage.php">Booking People</a></li>
       <li><a href="StationPaymentManage.php">Transaction</a></li>
       <li><a href="loginMenu.php">logout</a></li>
     </ul>
   </div>
   <div class="sidebar2">
-    <h1 class="adminTopic">Booking Peoples...</h1>
+    <h1 class="adminTopic">Manage Bus Driver Profiles</h1>
     <?php
-      $sqlget="SELECT * FROM booking";
+      $sqlget="SELECT * FROM Bus_Driver";
       $sqldata=mysqli_query($conn,$sqlget) or die('error getting');
       echo "<table>";
       echo "<tr>
-              <th>ID</th>
-              <th>Passenger Name</th>
-              <th>Tel</th>
-              <th>E-mail</th>
-              <th>Boarding Place</th>
-              <th>His/Her Destination</th>
+              <th>id</th>
+              <th>user_id</th>
+              <th>Driver Name</th>
+              <th>Bus Name</th>
+              <th>Telephone no</th>              
+              <th>Email</th>
+              <th>password</th>
               <th>Update</th>
               <th>Delete</th>
+              
             </tr>";
       while ($row=mysqli_fetch_array($sqldata,MYSQLI_ASSOC)) {
         echo "<tr><td>";
         echo $row['id'];
         echo "</td><td>";
-        echo $row['passenger_name'];
+        echo $row['user_id'];
         echo "</td><td>";
-        echo $row['telephone'];
+        echo $row['Driver_Name'];
         echo "</td><td>";
-        echo $row['email'];
+        echo $row['Bus_Name'];
         echo "</td><td>";
-        echo $row['boarding_place'];
+        echo $row['Telephone_no'];
         echo "</td><td>";
-        echo $row['Your_destination'];
+        echo $row['Email'];
+        echo "</td><td>";
+        echo $row['Password'];
         echo "</td>";
         ?>
         <td>
           <button>
-            <a href="updateBooking.php?id=<?php echo $row['id'];?>">
+            <a href="StationupdateBusdriverprofile.php?id=<?php echo $row['id'];?>">
               Update
             </a>
           </button>
         </td>
         <td>
           <button>
-            <a href="DeleteStationBookingManage.php?id=<?php echo $row['id'];?>">
+            <a href="DeleteStationBusdriverprofile.php?id=<?php echo $row['id'];?>">
               Delete
             </a>
           </button>
@@ -80,6 +85,8 @@ include("connection.php");
       }
       echo "</table>";
     ?>
+    <br>
+    <a href="StationAddBusDriver.php"><button class="btnPolicy">Add Bus Driver</button></a>
   </div>
 </body>
 </html>

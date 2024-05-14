@@ -58,8 +58,9 @@ session_start();
 
 
     
-li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+<li><a href="StationManager_dashboard.php">Manage Routes</a></li>
       <li><a href="StationManageBuses.php">Manage Buses</a></li>
+      <li><a href="StationbusDriverprofile.php">Manage Bus Driver</a></li>
       <li><a href="StationBookingManage.php">Booking People</a></li>
       <li><a href="StationPaymentManage.php">Transaction</a></li>
       <li><a href="loginMenu.php">logout</a></li>
@@ -137,7 +138,7 @@ li><a href="StationManager_dashboard.php">Manage Routes</a></li>
         <td>
 
         <button>
-          <a href="updateTransactionRecivied.php?id=<?php echo $row['id'];?>">
+          <a href="UpdateStationTransactionRecieved.php?id=<?php echo $row['id'];?>">
          
           
           
@@ -154,7 +155,7 @@ li><a href="StationManager_dashboard.php">Manage Routes</a></li>
         <td>
 
         <button>
-          <a href="deleteTransactionRecivied.php?id=<?php echo $row['id'];?>">
+          <a href="DeleteStationPaymentManage.php?id=<?php echo $row['id'];?>">
          
           
           

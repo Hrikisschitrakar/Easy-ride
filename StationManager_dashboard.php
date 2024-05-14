@@ -45,6 +45,7 @@ include("function.php");
     <ul>
     <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
       <li><a href="StationManageBuses.php">Manage Buses</a></li>
+      <li><a href="StationBusdriverprofile.php">Manage Bus Driver</a></li>
       <li><a href="StationBookingManage.php">Booking People</a></li>
       <li><a href="StationPaymentManage.php">Transaction</a></li>
       <li><a href="loginMenu.php">logout</a></li>
@@ -96,7 +97,7 @@ include("function.php");
         </td>
         <td>
           <button>
-            <a href="deleteRoute.php?id=<?php echo $row['id'];?>">
+            <a href="DeleteRouteStationManager_dashboard.php?id=<?php echo $row['id'];?>">
               Delete
             </a>
           </button>

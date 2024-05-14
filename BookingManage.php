@@ -38,7 +38,7 @@ include("connection.php");
       $sqldata=mysqli_query($conn,$sqlget) or die('error getting');
       echo "<table>";
       echo "<tr>
-              <th>ID</th>
+              
               <th>Passenger Name</th>
               <th>Tel</th>
               <th>E-mail</th>
@@ -48,8 +48,7 @@ include("connection.php");
               <th>Delete</th>
             </tr>";
       while ($row=mysqli_fetch_array($sqldata,MYSQLI_ASSOC)) {
-        echo "<tr><td>";
-        echo $row['id'];
+        
         echo "</td><td>";
         echo $row['passenger_name'];
         echo "</td><td>";

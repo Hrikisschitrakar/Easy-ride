@@ -59,7 +59,7 @@ session_start();
 
     
     <li><a href="admin_dashboard.php">Manage Routes</a></li>
-    <li><a href="managesprofiles.php">Manages Profiles</a></li>
+    <li><a href="manageprofiles.php">Manages Profiles</a></li>
     <li><a href="ManagesBuses.php">Manage Buses</a></li>
     <li><a href="BookingManage.php">Booking People</a></li>
     <li><a href="PaymentManage.php">Transaction</a></li>
@@ -101,7 +101,7 @@ session_start();
 
     echo "<table>";
     echo "<tr>
-      <th>ID</th>
+      
     <th>Paid Amount</th>
     <th>Paid Passenger Name</th>
     <th>E-mail</th>
@@ -117,8 +117,7 @@ session_start();
        while ($row=mysqli_fetch_array($sqldata,MYSQLI_ASSOC))
        {
         
-        echo "<tr><td>";
-        echo $row['id'];
+       
         echo "</td><td>";
         echo $row['amount'];
         echo "</td><td>";

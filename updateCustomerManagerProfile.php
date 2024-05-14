@@ -4,23 +4,6 @@
 
 ?>
 <?php include("connection.php")?>
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-	<title>admin Panel Easyride</title>
-</head>
-<body>
-
-   <?php// echo "welcome:".  $_SESSION['id']; ?>
-   <a href="loginMenu.php"><button class="btnHome">logout</button></a>
-
-</body>
-</html>
-
--->
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,14 +66,29 @@
       
 
        if(isset($_POST['CustomerManagerUpdate'])){
-
-       $id=$_POST['id'];
+       // Check if id is set in $_POST
+       if(isset($_POST['id'])) {
+          $id=$_POST['id'];
+       } else {
+          echo '<script type="text/javascript">alert("ID is missing from the form data.")</script>';
+          exit(); // Stop further execution if ID is missing
+       }
        $user_id=$_POST['user_id'];
        $First_Name=$_POST['First_Name'];
        $Last_Name=$_POST['Last_Name'];
        $username=$_POST['username'];
        $email=$_POST['email'];
-        $password=$_POST['password'];
+       $password=$_POST['password'];
+
+       // Password validation
+       $passwordPattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/";
+       if (!preg_match($passwordPattern, $password)) {
+           echo ("<script LANGUAGE='JavaScript'>
+           window.alert('Password must be at least 4 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
+           window.location.href='updateBusdriverprofile.php';
+           </script>");
+           exit(); // Stop further execution if password validation fails
+       }
 
        $query="UPDATE `users` SET user_id='$user_id',First_Name='$First_Name',Last_Name='$Last_Name',username='$username',email='$email',password='$password' where id=$id";
 
@@ -112,7 +110,10 @@
 
                  
 */
-           echo '<script type="text/javascript">alert("Customer profile udated sucessfully!!!")</script>';
+echo ("<script LANGUAGE='JavaScript'>
+window.alert('Succesfully Bus updated!!!');
+window.location.href='Customermanagerprofile.php';
+</script>");
 
 
           }
@@ -142,15 +143,12 @@
 
     <form action="#" method="POST">
       <div class="form_wrap">
-
-        <div class="input_wrap">
-          <label for="title">Id</label>
-          <input type="number" id="title" name="id" class="idclass" value="<?php echo $_GET['id'];?>">
-        </div>
+        <!-- Hidden input field for ID -->
+        <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
         
         <div class="input_wrap">
           <label for="title">user_id</label>
-          <input type="text" id="title" name="user_id" class="idclass"placeholder="user_id" required>
+          <input type="number" id="title" name="user_id" class="idclass"placeholder="user_id" required>
         </div>
 
 

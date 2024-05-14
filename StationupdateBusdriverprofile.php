@@ -1,17 +1,17 @@
-<?php 
-	session_start();
+<?php
+session_start();
 ?>
-<?php include("connection.php");?>
+<?php include("connection.php")?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bus Driver adding</title>
+    <title>Admin Panel EasyRide</title>
     <!--cdn icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="signUp.css">
-    <link rel="stylesheet" href="Addroute.css">
+    <link rel="stylesheet" href="updateBusdriverprofile.css">
 </head>
 <body>
     <input type="checkbox" id="check">
@@ -24,17 +24,17 @@
             <p><?php echo $_SESSION['username']; ?></p>
         </header>
         <ul>
-            <li><a href="admin_dashboard.php">Manage Routes</a></li>
-            <li><a href="manageprofiles.php">Manage Profiles</a></li>
-            <li><a href="ManagesBuses.php">Manage Buses</a></li>
-            <li><a href="BookingManage.php">Booking People</a></li>
+            <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+            <li><a href="StationManageBuses.php">Manage Buses</a></li>
+            <li><a href="StationBusdriverprofile.php">Manage Bus Driver</a></li>
+            <li><a href="StationBookingManage.php">Booking People</a></li>
             <li><a href="PaymentManage.php">Transaction</a></li>
             <li><a href="loginMenu.php">logout</a></li>
         </ul>
     </div>
 
     <?php 
-    if(isset($_POST['Add_BusDriver'])){
+    if(isset($_POST['UpdateBusDriver'])){
         $id = $_POST['id'];
         $user_id = $_POST['user_id'];
         $Driver_Name = $_POST['Driver_Name'];
@@ -43,39 +43,26 @@
         $Email = $_POST['Email'];
         $Password = $_POST['Password'];
 
-        // Regular expression to validate the password
-        $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/";
-        if (!preg_match($pattern, $Password)) {
+        // Prepare and bind the SQL statement
+        $query = "UPDATE `bus_driver` SET user_id=?, Driver_Name=?, Bus_Name=?, Telephone_no=?, Email=?, Password=? WHERE id=?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ssssssi", $user_id, $Driver_Name, $Bus_Name, $Telephone_no, $Email, $Password, $id);
+
+        // Execute the statement
+        $query_run = $stmt->execute();
+
+        if($query_run) {
             echo ("<script LANGUAGE='JavaScript'>
-                window.alert('Password must be at least 4 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
-                window.location.href='addbusdriver.php';
-                </script>");
-            exit();
-        }
-
-        if($conn->connect_error) {
-            die('Connection Failed :'.$conn->connect_error);
+            window.alert('Succesfully Transaction Updated!!!');
+            window.location.href='StationBusdriverprofile.php';
+            </script>");
         } else {
-            $stmt = $conn->prepare("INSERT INTO bus_driver(id, user_id, Driver_Name, Bus_Name, Telephone_no, Email, Password) VALUES(?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("isssiss", $id, $user_id, $Driver_Name, $Bus_Name, $Telephone_no, $Email, $Password);
-
-            try {
-                if ($stmt->execute()) {
-                    echo ("<script LANGUAGE='JavaScript'>
-                    window.alert('Successfully Bus Driver Added!!!');
-                    window.location.href='Busdriverprofile.php';
-                    </script>");
-                }
-            } catch (mysqli_sql_exception $e) {
-                echo ("<script LANGUAGE='JavaScript'>
-                window.alert('This ID is already present. Please insert a new ID.');
-                window.location.href='addbusdriver.php';
-                </script>");
-            }
-
-            $stmt->close();
-            $conn->close();
+            echo '<script type="text/javascript">alert("Bus Driver Profile Not updated!!!")</script>';
         }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
     }
     ?>
 
@@ -83,17 +70,15 @@
         <div class="wrapper">
             <div class="registration_form">
                 <div class="title">
-                    Bus Driver adding
+                    Bus Driver Update/Edit
                 </div>
                 <form action="#" method="POST">
                     <div class="form_wrap">
-                        <div class="input_wrap">
-                            <label for="title">Id</label>
-                            <input type="number" id="title" name="id" placeholder="Id" class="idclass" required>
-                        </div>
+                    <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
+                        
                         <div class="input_wrap">
                             <label for="title">User Id</label>
-                            <input type="number" id="title" name="user_id" placeholder="User Id" class="idclass" required>
+                            <input type="number" id="title" name="user_id" placeholder="user id" class="idclass" required>
                         </div>
                         <div class="input_wrap">
                             <label for="title">Driver Name</label>
@@ -115,23 +100,24 @@
                         </div>
                         <div class="input_wrap">
                             <label for="title">Telephone no</label>
-                            <input type="number" id="title" name="Telephone_no" placeholder="Telephone no" class="idclass" required>
+                            <input type="text" id="title" name="Telephone_no" placeholder="Telephone number" class="idclass">
                         </div>
                         <div class="input_wrap">
                             <label for="title">Email</label>
-                            <input type="email" id="title" name="Email" placeholder="Email" class="idclass" required>
+                            <input type="email" id="title" name="Email" placeholder="Email" class="idclass">
                         </div>
                         <div class="input_wrap">
                             <label for="title">Password</label>
                             <input type="password" id="title" name="Password" placeholder="Password" class="idclass" required>
                         </div>
                         <div class="input_wrap">
-                            <input type="submit" value="Add Bus Driver" class="submit_btn" name="Add_BusDriver">
+                            <input type="submit" value="Update Bus Driver Now" class="submit_btn" name="UpdateBusDriver">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
 </body>
 </html>

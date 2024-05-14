@@ -50,11 +50,11 @@
 
 
    
-    <li><a href="admin_dashboard.php">Manage Routes</a></li>
-    <li><a href="manageprofiles.php">Manages Profiles</a></li>
-    <li><a href="ManagesBuses.php">Manage Buses</a></li>
-    <li><a href="BookingManage.php">Booking People</a></li>
-    <li><a href="PaymentManage.php">Transaction</a></li>
+    <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+    <li><a href="StationManageBuses.php">Manage Buses</a></li>
+    <li><a href="StationBusdriverprofile.php">Manage Bus Driver</a></li>
+    <li><a href="StationBookingManage.php">Booking People</a></li>
+    <li><a href="StationPaymentManage.php">Transaction</a></li>
     <li><a href="loginMenu.php">logout</a></li>
     
   <!--  <li><a href="#">Event</a></li>
@@ -114,7 +114,7 @@
 */
 echo ("<script LANGUAGE='JavaScript'>
 window.alert('Succesfully Updated Route Sucessfully!!!');
-window.location.href='admin_dashboard.php';
+window.location.href='StationManager_dashboard.php';
 </script>");
 
 
@@ -147,7 +147,8 @@ window.location.href='admin_dashboard.php';
       <div class="form_wrap">
 
       <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
-      <div class="input_wrap">
+        
+        <div class="input_wrap">
                             <label for="title">Select City</label>
                             <select id="title" name="via_city"  class="idclass" required>
                                 <?php 

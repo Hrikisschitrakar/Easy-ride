@@ -76,7 +76,7 @@ include("connection.php");
         </td>
         <td>
           <button>
-            <a href="deleteCustomerManagerProfile.php?id=<?php echo $row['id'];?>">
+            <a href="DeleteCustomerProfile.php?id=<?php echo $row['id'];?>">
               Delete
             </a>
           </button>

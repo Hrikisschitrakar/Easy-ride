@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Easy Ride</title>
+	<title> Easyride</title>
 </head>
 <body>
 
@@ -24,14 +24,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Easy Ride</title>
+  <title>Admin Panel Easy Ride</title>
   <!--cdn icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="sidebar.css">
 <link rel="stylesheet" href="signUp.css">
-<link rel="stylesheet" href="updateRoute.css">
-	<style type="text/css">
-    </style>
+<link rel="stylesheet" href="updateTransactionRecivied.css">
+
 </head>
 <body>
   <input type="checkbox" id="check">
@@ -50,13 +49,11 @@
 
 
    
-    <li><a href="admin_dashboard.php">Manage Routes</a></li>
-    <li><a href="manageprofiles.php">Manages Profiles</a></li>
-    <li><a href="ManagesBuses.php">Manage Buses</a></li>
-    <li><a href="BookingManage.php">Booking People</a></li>
-    <li><a href="PaymentManage.php">Transaction</a></li>
+    <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+    <li><a href="StationManageBuses.php">Manage Buses</a></li>
+    <li><a href="StationBookingManage.php">Booking People</a></li>
+    <li><a href="StationPaymentManage.php">Transaction</a></li>
     <li><a href="loginMenu.php">logout</a></li>
-    
   <!--  <li><a href="#">Event</a></li>
     <li><a href="#">About</a></li>
     <li><a href="#">Service</a></li>
@@ -74,7 +71,7 @@
    
 
 </div>
-
+<!-------------------------------------------------->
    
 
    <?php 
@@ -82,17 +79,17 @@
 
       
 
-       if(isset($_POST['routeUpdate'])){
+       if(isset($_POST['updateTransaction'])){
 
-       $id=$_POST['id'];
-       $via_city=$_POST['via_city'];
-       $destination=$_POST['destination'];
-       $bus_name=$_POST['bus_name'];
-       $dep_date=$_POST['departure_date'];
-       $dep_time=$_POST['departure_time'];
-        $cost=$_POST['cost'];
+       
+       $amount=$_POST['amount'];
+       $name=$_POST['name'];
+      $email=$_POST['email'];
+      $address=$_POST['address'];
+      $city=$_POST['city'];
+      
 
-       $query="UPDATE `route` SET via_city='$via_city',destination='$destination',bus_name='$bus_name',departure_date='$dep_date',departure_time='$dep_time',cost='$cost' where id=$id";
+       $query="UPDATE `payment` SET amount='$amount',name='$name',email='$email',address='$address',city='$city' ";
 
 
        $query_run=mysqli_query($conn,$query);
@@ -112,17 +109,20 @@
 
                  
 */
-echo ("<script LANGUAGE='JavaScript'>
-window.alert('Succesfully Updated Route Sucessfully!!!');
-window.location.href='admin_dashboard.php';
-</script>");
+              echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Succesfully Transaction Updated!!!');
+    window.location.href='StationPaymentManage.php';
+    </script>");
+
+
+        //   echo '<script type="text/javascript">alert("Booking udated sucessfully!!!")</script>';
 
 
           }
 
           else{
 
-               echo '<script type="text/javascript">alert("Route not updated!!!")</script>';
+               echo '<script type="text/javascript">alert("Booking not updated!!!")</script>';
            }
 
            
@@ -137,19 +137,36 @@ window.location.href='admin_dashboard.php';
 
 
 
+
+   
+          
+
           <div class="wrapper">
   <div class="registration_form">
     <div class="title">
-      Bus Route Update/Edit
+    Update Passenger Booking...
     </div>
 
     <form action="#" method="POST">
       <div class="form_wrap">
 
-      <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
-      <div class="input_wrap">
-                            <label for="title">Select City</label>
-                            <select id="title" name="via_city"  class="idclass" required>
+
+        
+
+        <div class="input_wrap">
+          <label for="title">Paid Amount</label>
+          <input type="number" id="title" name="amount" placeholder="Paid Amount" class="idclass" required>
+        </div>
+        
+        <div class="input_wrap">
+          <label for="title">Paid Passenger Name</label>
+          <input type="text" id="title" name="name" placeholder="Passenger Name" required>
+        </div>
+
+
+        <div class="input_wrap">
+                            <label for="title">Select Address</label>
+                            <select id="title" name="address"  class="idclass" required>
                                 <?php 
                                 $sql = "SELECT via_city FROM location";
                                 $result = $conn->query($sql);
@@ -162,10 +179,14 @@ window.location.href='admin_dashboard.php';
                             </select>
                         </div>
 
+        <div class="input_wrap">
+          <label for="title">E-mail</label>
+          <input type="E-mail" id="title" name="email" placeholder="E-mail" class="idclass" required>
+        </div>
 
-                        <div class="input_wrap">
+        <div class="input_wrap">
                             <label for="title">Select Destination</label>
-                            <select id="title" name="destination"  class="idclass" required>
+                            <select id="title" name="city"  class="idclass" required>
                                 <?php 
                                 $sql = "SELECT Destination FROM location";
                                 $result = $conn->query($sql);
@@ -178,44 +199,8 @@ window.location.href='admin_dashboard.php';
                             </select>
                         </div>
 
-                        <div class="input_wrap">
-                            <label for="title">Select Bus</label>
-                            <select id="title" name="bus_name"  class="idclass" required>
-                                <?php 
-                                $sql = "SELECT Bus_Name FROM bus";
-                                $result = $conn->query($sql);
-                                if ($result->num_rows > 0) {
-                                    while($row = $result->fetch_assoc()) {
-                                        echo "<option value='".$row['Bus_Name']."'>".$row['Bus_Name']."</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
-                        </div>
-
-
-         <div class="input_wrap">
-          <label for="title">Departure Date</label>
-          <input type="Date" id="title" name="departure_date" placeholder="Departure Date" class="idclass">
-        </div>
-
-
-         <div class="input_wrap">
-          <label for="title">Departure Time</label>
-          <input type="Time" id="title" name="departure_time" placeholder="Departure Time" class="idclass">
-        </div>
-
-
-          <div class="input_wrap">
-          <label for="title">Cost</label>
-          <input type="number" id="title" name="cost" placeholder="Cost" class="idclass">
-        </div>
-
-
-        
         <div class="input_wrap">
-
-          <input type="submit" value="Update Route Now" class="submit_btn" name="routeUpdate">
+          <input type="submit" value="Update Now" class="submit_btn" name="updateTransaction">
 
         </div>
 
@@ -225,6 +210,7 @@ window.location.href='admin_dashboard.php';
     </form>
   </div>
 </div>
+
 
 
 
