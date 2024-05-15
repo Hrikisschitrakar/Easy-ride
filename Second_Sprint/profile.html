@@ -5,35 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Bus Ticket System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-<div class="container">
-        <div class="user-greeting"><b>Hello, <!-- Username Here --></b></div>
-        <div class="content-wrapper">
-            <div class="left">
-                <img src="avatar.png" alt="User" width="100" class="avatar">
-               
-                <a href="home.html" class="btn home-btn">Home</a>
-            </div>
-            <div class="right">
-                <h2>Account Information</h2>
-                <hr>
-                <div class="info">
-                    <p><strong>Username:</strong> <!-- Username Here --></p>
-                    <p><strong>Email:</strong> <!-- Email Here --></p>
-                    <p><strong>First Name:</strong> <!-- First Name Here --></p>
-                    <p><strong>Last Name:</strong> <!-- Last Name Here --></p>
-                </div>
-                <h2>Logout & Security</h2>
-                <hr>
-                <div class="actions">
-                    <a href="#" class="btn update-btn">Update</a>
-                    <a href="#" class="btn logout-btn">Logout</a>
-                    <a href="#" class="btn delete-btn">Delete</a>
-                </div>
-            </div>
+    <div class="usern"><b>Hello, [Username]</b></div>
+    <div class="wrapper">
+        <div class="left">
+            <img src="avatar.png" alt="user" width="200">
         </div>
+        <div class="right">
+            <h3>Account Information</h3>
+            <hr/>
+            <p>User name: [Username]</p>
+            <p>Email: [Email]</p>
+            <p>First name: [First Name]</p>
+            <p>Last name: [Last Name]</p>
+            <h3>Logout & Security</h3>
+            <hr/>
+            <a href="updateProfile.php">
+                <button class="btn3">Update</button>
+            </a>
+            <a href="logout.php">
+                <button class="btn3">Logout</button>
+            </a>
+            <a href="deleteProfile.php">
+                <button class="btn3">Delete</button>
+            </a>
+        </div>
+    </div>
+    <div class="home-button">
+        <a href="viewBus.php"><button class="btn4">Home</button></a>
     </div>
 </body>
 </html>
