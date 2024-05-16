@@ -37,16 +37,17 @@ session_start();
     if(isset($_POST['UpdateBusDriver'])){
         $id = $_POST['id'];
         $user_id = $_POST['user_id'];
-        $Driver_Name = $_POST['Driver_Name'];
+        $First_Name = $_POST['First_Name'];
+        $Last_Name = $_POST['Last_Name'];
         $Bus_Name = $_POST['Bus_Name'];
         $Telephone_no = $_POST['Telephone_no'];
         $Email = $_POST['Email'];
         $Password = $_POST['Password'];
 
         // Prepare and bind the SQL statement
-        $query = "UPDATE `bus_driver` SET user_id=?, Driver_Name=?, Bus_Name=?, Telephone_no=?, Email=?, Password=? WHERE id=?";
+        $query = "UPDATE `bus_driver` SET user_id=?, First_Name=?,Last_Name=?, Bus_Name=?, Telephone_no=?, Email=?, Password=? WHERE id=?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssssssi", $user_id, $Driver_Name, $Bus_Name, $Telephone_no, $Email, $Password, $id);
+        $stmt->bind_param("sssssssi", $user_id, $First_Name, $Last_Name, $Bus_Name, $Telephone_no, $Email, $Password, $id);
 
         // Execute the statement
         $query_run = $stmt->execute();
@@ -81,8 +82,13 @@ session_start();
                             <input type="number" id="title" name="user_id" placeholder="user id" class="idclass" required>
                         </div>
                         <div class="input_wrap">
-                            <label for="title">Driver Name</label>
-                            <input type="text" id="title" name="Driver_Name" placeholder="Driver Name" required>
+                            <label for="title">First Name</label>
+                            <input type="text" id="title" name="First_Name" placeholder="First Name" required>
+                        </div>
+
+                        <div class="input_wrap">
+                            <label for="title">Last Name</label>
+                            <input type="text" id="title" name="Last_Name" placeholder="Last Name" required>
                         </div>
                         <div class="input_wrap">
                             <label for="title">Select Bus</label>

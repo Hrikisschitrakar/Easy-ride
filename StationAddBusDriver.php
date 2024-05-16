@@ -37,7 +37,8 @@
     if(isset($_POST['Add_BusDriver'])){
         $id = $_POST['id'];
         $user_id = $_POST['user_id'];
-        $Driver_Name = $_POST['Driver_Name'];
+        $First_Name = $_POST['First_Name'];
+        $Last_Name = $_POST['Last_Name'];
         $Bus_Name = $_POST['Bus_Name'];
         $Telephone_no = $_POST['Telephone_no'];
         $Email = $_POST['Email'];
@@ -56,8 +57,8 @@
         if($conn->connect_error) {
             die('Connection Failed :'.$conn->connect_error);
         } else {
-            $stmt = $conn->prepare("INSERT INTO bus_driver(id, user_id, Driver_Name, Bus_Name, Telephone_no, Email, Password) VALUES(?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("isssiss", $id, $user_id, $Driver_Name, $Bus_Name, $Telephone_no, $Email, $Password);
+            $stmt = $conn->prepare("INSERT INTO bus_driver(id, user_id, First_Name, Last_Name, Bus_Name, Telephone_no, Email, Password) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("issssiss", $id, $user_id, $First_Name, $Last_Name, $Bus_Name, $Telephone_no, $Email, $Password);
 
             try {
                 if ($stmt->execute()) {
@@ -96,8 +97,12 @@
                             <input type="number" id="title" name="user_id" placeholder="User Id" class="idclass" required>
                         </div>
                         <div class="input_wrap">
-                            <label for="title">Driver Name</label>
-                            <input type="text" id="title" name="Driver_Name" placeholder="Driver Name" required>
+                            <label for="title">First Name</label>
+                            <input type="text" id="title" name="First_Name" placeholder="First Name" required>
+                        </div>
+                        <div class="input_wrap">
+                            <label for="title">Last Name</label>
+                            <input type="text" id="title" name="Last_Name" placeholder="Last Name" required>
                         </div>
                         <div class="input_wrap">
                             <label for="title">Select Bus</label>

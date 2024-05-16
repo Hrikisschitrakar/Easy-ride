@@ -39,15 +39,16 @@ include("connection.php");
       $sqldata=mysqli_query($conn,$sqlget) or die('error getting');
       echo "<table>";
       echo "<tr>
-              <th>id</th>
-              <th>user_id</th>
-              <th>Driver Name</th>
-              <th>Bus Name</th>
-              <th>Telephone no</th>              
-              <th>Email</th>
-              <th>password</th>
-              <th>Update</th>
-              <th>Delete</th>
+      <th>id</th>
+      <th>user_id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Bus Name</th>
+      <th>Telephone no</th>             
+      <th>Email</th>
+      <th>password</th>
+      <th>Update</th>
+      <th>Delete</th>
               
             </tr>";
       while ($row=mysqli_fetch_array($sqldata,MYSQLI_ASSOC)) {
@@ -56,7 +57,9 @@ include("connection.php");
         echo "</td><td>";
         echo $row['user_id'];
         echo "</td><td>";
-        echo $row['Driver_Name'];
+        echo $row['First_Name'];
+        echo "</td><td>";
+        echo $row['Last_Name'];
         echo "</td><td>";
         echo $row['Bus_Name'];
         echo "</td><td>";
