@@ -1,0 +1,137 @@
+/* Reset Styles */
+* {
+  margin: 1px;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(8.jpg);
+  color: white; /* Added text color */
+}
+
+/* Header Styles */
+header {
+  background-color:url(8.jpg); 
+  color: #fff;
+  padding: 10px 0; 
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 32px; 
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 30px; /* Increased margin */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px; /* Increased font size */
+}
+
+/* Container Styles */
+.container {
+  max-width: 1400px; 
+  margin: 190px; 
+  padding: 0 50px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
+}
+
+.user-greeting {
+  font-size: 24px; 
+  margin-bottom: 30px; 
+  color: white;
+}
+
+.content-wrapper {
+  display: flex;
+  margin-top: 20px; 
+}
+
+
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3A5795;
+  padding: 30px;
+  border-radius: 15px;
+  color: #fff;
+}
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 15px 30px; /* Increased padding */
+  margin-top: 20px; /* Increased margin */
+  border: none;
+  border-radius: 8px; /* Increased border-radius */
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px; /* Increased font size */
+}
+
+.upload-btn {
+  background-color: #F9522E;
+}
+
+.home-btn {
+  background-color: #6e83b3;
+}
+
+/* Avatar Styles */
+.avatar {
+  margin-top: 20px; /* Adjusted margin */
+}
+
+.right {
+  flex: 2;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  color: #333;
+  margin-left: 20px;
+}
+/* Button Styles */
+.update-btn,
+.logout-btn,
+.delete-btn {
+  background-color: #F9522E;
+  margin-right: 20px; /* Increased margin */
+}
+
+.update-btn:hover,
+.logout-btn:hover,
+.delete-btn:hover,
+.upload-btn:hover,
+.home-btn:hover {
+  background-color: #1b9bff;
+}
+
+.middle-box {
+  display: flex;
+  justify-content: center; /* Center align content horizontally */
+  align-items: center;
+  margin: 30px;
+}

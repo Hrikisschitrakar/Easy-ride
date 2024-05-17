@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Carousel Slider</title>
+    <link rel="stylesheet" type="text/css" href="services.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.css">
+</head>
+
+<body>
+
+    <div class="hero-slider" data-carousel>
+        <div class="carousel-cell" style="background-image: url('services1.jpg');">
+            <div class="overlay"></div>
+            <div class="inner">
+                <h3 class="subtitle">Choose your Bus</h3>
+                <h2 class="title">Enjoy your tour with our best facility</h2>
+                <a href="home.php" class="btn">Go to Home</a>
+            </div>
+        </div>
+
+        <div class="carousel-cell" style="background-image: url('services2.jpg');">
+            <div class="overlay"></div>
+            <div class="inner">
+                <h3 class="subtitle">Ticket Booking</h3>
+                <h2 class="title">Book your ticket quickly via online</h2>
+                <a href="home.php" class="btn">Go to Home</a>
+            </div>
+        </div>
+
+        <div class="carousel-cell" style="background-image: url('services3.jpg');">
+            <div class="overlay"></div>
+            <div class="inner">
+                <h3 class="subtitle">AC/Non-AC</h3>
+                <h2 class="title">AC or Non-AC, as per your preference</h2>
+                <a href="home.php" class="btn">Go to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
+    <script>
+        var options = {
+            accessibility: true,
+            prevNextButtons: true,
+            pageDots: true,
+            setGallerySize: false,
+            wrapAround: true,
+            arrowShape: {
+                x0: 10,
+                x1: 60,
+                y1: 50,
+                x2: 60,
+                y2: 45,
+                x3: 15
+            }
+        };
+
+        var carousel = document.querySelector('[data-carousel]');
+        var slides = document.getElementsByClassName('carousel-cell');
+        var flkty = new Flickity(carousel, options);
+
+        flkty.on('scroll', function () {
+            flkty.slides.forEach(function (slide, i) {
+                var image = slides[i];
+                var x = (slide.target + flkty.x) * -1 / 3;
+                image.style.backgroundPosition = x + 'px';
+            });
+        });
+    </script>
+
+</body>
+
+</html>
