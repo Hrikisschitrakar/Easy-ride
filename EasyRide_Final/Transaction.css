@@ -1,0 +1,92 @@
+body {
+  background-image: url("1.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 700px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+}
+
+.adminTopic {
+  text-align: center;
+  color: #fff;
+}
+
+table {
+  width: 80%;
+  margin: 50px auto;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+}
+
+table th {
+  background-color: #f2f2f2;
+  border-bottom: 2px solid #ddd;
+  padding: 15px 0;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr td {
+  border-bottom: 2px solid #ddd;
+  padding: 15px 0;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+table tr td a {
+  color: white;
+  border-radius: 5px;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #4CAF50; /* Green */
+  transition: background-color 0.3s;
+}
+
+table tr td a:hover {
+  background-color: #45a049;
+}
+
+.btnPolicy {
+  padding: 15px 20px;
+  border: 2px solid yellow;
+  border-radius: 7px;
+  background-color: #45a049;
+  color: white;
+  margin: 20px auto;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+
+
+table tr td button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+table tr td button:hover {
+  background-color: #45a049;
+}
+
+table tr td button.delete-btn {
+  background-color: #45a049
+}
+

@@ -1,0 +1,26 @@
+body{
+ 
+    background-image: url(2.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .confirm{
+  
+      background-color: black;
+      margin-top: 5px;
+  
+  
+  }
+  .form_wrap .input_grp  input[type="number"]{
+    width: 165px;
+  }
+  .form_wrap  input[type="number"]{
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #9597a6;
+    padding: 10px;
+    outline: none;
+    color: black;
+  }
