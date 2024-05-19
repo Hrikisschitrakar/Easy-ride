@@ -45,6 +45,7 @@ include("connection.php");
               <th>Last Name</th>
               <th>Username</th>
               <th>email</th>
+              <th>telephone</th>
               <th>password</th>
               <th>Update</th>
               <th>Delete</th>
@@ -64,6 +65,8 @@ include("connection.php");
         echo "</td><td>";
         echo $row['email'];
         echo "</td><td>";
+        echo $row['telephone'];
+        echo "</td><td>";
         echo $row['password'];
         echo "</td>";
         ?>
@@ -76,7 +79,7 @@ include("connection.php");
         </td>
         <td>
           <button>
-            <a href="deleteCustomerManagerProfile.php?id=<?php echo $row['id'];?>">
+            <a href="DeleteCustomerProfile.php?id=<?php echo $row['id'];?>">
               Delete
             </a>
           </button>
