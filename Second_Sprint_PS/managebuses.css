@@ -84,7 +84,7 @@ table tr td button {
 }
 
 table tr td button:hover {
-  background-color: #45a049;
+  background-color: #f44336;
 }
 
 table tr td button.delete-btn {

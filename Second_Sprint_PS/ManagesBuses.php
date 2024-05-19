@@ -28,7 +28,7 @@
       <li><a href="ManagesBuses.php">Manage Buses</a></li>
       <li><a href="BookingManage.php">Booking People</a></li>
       <li><a href="PaymentManage.php">Transaction</a></li>
-      <li><a href="loginMenu.php">logout</a></li>
+      <li><a href="loginMenu.php">Logout</a></li>
     </ul>
   </div>
 
@@ -36,15 +36,14 @@
     <h1 class="adminTopic">Manage Buses</h1>
 
     <?php
-      $sqlget = "SELECT * FROM bus_driver";
+      $sqlget = "SELECT * FROM bus";
       $sqldata = mysqli_query($conn, $sqlget) or die('error getting');
     ?>
 
     <table>
       <tr>
+        <th>Id</th>
         <th>Bus Name</th>
-        <th>Driver Name</th>
-        <th>Bus Id</th>
         <th>Telephone no</th>
         <th>Update</th>
         <th>Delete</th>
@@ -52,15 +51,14 @@
 
       <?php while ($row = mysqli_fetch_array($sqldata, MYSQLI_ASSOC)): ?>
         <tr>
+          <td><?php echo $row['id']; ?></td>
           <td><?php echo $row['Bus_Name']; ?></td>
-          <td><?php echo $row['Driver_Name']; ?></td>
-          <td><?php echo $row['user_id']; ?></td>
-          <td><?php echo $row['Telephone_no']; ?></td>
+          <td><?php echo $row['Tel']; ?></td>
           <td>
             <button><a href="UpdateBus.php?id=<?php echo $row['id']; ?>">Update</a></button>
           </td>
           <td>
-            <button><a href="deleteBus.php?id=<?php echo $row['id']; ?>">Delete</a></button>
+            <button ><a href="deleteBus.php?id=<?php echo $row['id']; ?>">Delete</a></button>
           </td>
         </tr>
       <?php endwhile; ?>
