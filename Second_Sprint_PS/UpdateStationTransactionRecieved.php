@@ -49,11 +49,10 @@
 
 
    
-    <li><a href="admin_dashboard.php">Manage Routes</a></li>
-    <li><a href="manageprofiles.php">Manage Profiles</a></li>
-    <li><a href="ManagesBuses.php">Manage Buses</a></li>
-    <li><a href="BookingManage.php">Booking People</a></li>
-    <li><a href="PaymentManage.php">Transaction</a></li>
+    <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+    <li><a href="StationManageBuses.php">Manage Buses</a></li>
+    <li><a href="StationBookingManage.php">Booking People</a></li>
+    <li><a href="StationPaymentManage.php">Transaction</a></li>
     <li><a href="loginMenu.php">logout</a></li>
   <!--  <li><a href="#">Event</a></li>
     <li><a href="#">About</a></li>
@@ -82,6 +81,7 @@
 
        if(isset($_POST['updateTransaction'])){
 
+
        $id=$_POST['id'];
        $amount=$_POST['amount'];
        $name=$_POST['name'];
@@ -90,7 +90,7 @@
       $city=$_POST['city'];
       
 
-       $query="UPDATE `payment` SET amount='$amount',name='$name',email='$email',address='$address',city='$city' where id=$id";
+       $query="UPDATE `payment` SET amount='$amount',name='$name',email='$email',address='$address',city='$city' where id='$id'";
 
 
        $query_run=mysqli_query($conn,$query);
@@ -112,7 +112,7 @@
 */
               echo ("<script LANGUAGE='JavaScript'>
     window.alert('Succesfully Transaction Updated!!!');
-    window.location.href='PaymentManage.php';
+    window.location.href='StationPaymentManage.php';
     </script>");
 
 
@@ -150,6 +150,8 @@
 
     <form action="#" method="POST">
       <div class="form_wrap">
+
+
       <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
 
         <div class="input_wrap">
@@ -164,18 +166,17 @@
 
         <div class="input_wrap">
           <label for="title">Address</label>
-          <input type="text" id="title" name="address" placeholder="Address" required>
+          <input type="text" id="title" name="address" placeholder="Passenger Name" required>
         </div>
-
-
         
+
         <div class="input_wrap">
           <label for="title">E-mail</label>
           <input type="E-mail" id="title" name="email" placeholder="E-mail" class="idclass" required>
         </div>
 
         <div class="input_wrap">
-                            <label for="title">Select city</label>
+                            <label for="title">Select Destination</label>
                             <select id="title" name="city"  class="idclass" required>
                                 <?php 
                                 $sql = "SELECT Destination FROM location";

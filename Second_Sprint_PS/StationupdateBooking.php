@@ -34,13 +34,11 @@
     <p><?php echo $_SESSION['username']; ?></p>
     </header>
     <ul>
-    <li><a href="admin_dashboard.php">Manage Routes</a></li>
-      <li><a href="manageprofiles.php">Manages Profiles</a></li>
-      <li><a href="ManagesBuses.php">Manage Buses</a></li>
-      <li><a href="BookingManage.php">Booking People</a></li>
-      <li><a href="PaymentManage.php">Transaction</a></li>
+      <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+      <li><a href="StationManageBuses.php">Manage Buses</a></li>
+      <li><a href="StationBookingManage.php">Booking People</a></li>
+      <li><a href="StationPaymentManage.php">Transaction</a></li>
       <li><a href="loginMenu.php">logout</a></li>
-
     </ul>
   </div>
 
@@ -59,7 +57,7 @@
       if($query_run){
         echo ("<script LANGUAGE='JavaScript'>
           window.alert('Successfully Booking Updated!!!');
-          window.location.href='BookingManage.php';
+          window.location.href='StationBookingManage.php';
         </script>");
       } else {
         echo '<script type="text/javascript">alert("Booking not updated!!!")</script>';

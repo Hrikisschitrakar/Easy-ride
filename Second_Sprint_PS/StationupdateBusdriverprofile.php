@@ -24,11 +24,11 @@ session_start();
             <p><?php echo $_SESSION['username']; ?></p>
         </header>
         <ul>
-            <li><a href="admin_dashboard.php">Manage Routes</a></li>
-            <li><a href="manageprofiles.php">Manage Profiles</a></li>
-            <li><a href="ManagesBuses.php">Manage Buses</a></li>
-            <li><a href="BookingManage.php">Booking People</a></li>
-            <li><a href="PaymentManage.php">Transaction</a></li>
+            <li><a href="StationManager_dashboard.php">Manage Routes</a></li>
+            <li><a href="StationManagesBuses.php">Manage Buses</a></li>
+            <li><a href="StationBusdriverprofile.php">Manage Bus Driver</a></li>
+            <li><a href="StationBookingManage.php">Booking People</a></li>
+            <li><a href="StationPaymentManage.php">Transaction</a></li>
             <li><a href="loginMenu.php">logout</a></li>
         </ul>
     </div>
@@ -45,7 +45,16 @@ session_start();
         $Email = $_POST['email'];
         $Password = $_POST['password'];
 
-        // Check if username is already assigned to a bus
+        $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/";
+        if (!preg_match($pattern, $Password)) {
+            echo ("<script LANGUAGE='JavaScript'>
+                window.alert('Password must be at least 4 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
+                window.location.href='StationupdateBusdriverprofile.php';
+                </script>");
+            exit();
+        }
+
+        // Check if username is already assigned to a bus (excluding current bus driver)
         $check_username_query = "SELECT * FROM `bus_driver` WHERE username=? AND id != ?";
         $check_stmt = $conn->prepare($check_username_query);
         $check_stmt->bind_param("si", $username, $id);
@@ -55,23 +64,13 @@ session_start();
         if ($check_result->num_rows > 0) {
             echo ("<script LANGUAGE='JavaScript'>
                 window.alert('This username is already assigned to a bus and cannot be assigned to another bus.');
-                window.location.href='updateBusdriverprofile.php';
-                </script>");
-            exit();
-        }
-
-        // Password validation
-        $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/";
-        if (!preg_match($pattern, $Password)) {
-            echo ("<script LANGUAGE='JavaScript'>
-                window.alert('Password must be at least 4 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
-                window.location.href='updateBusdriverprofile.php';
+                window.location.href='StationupdateBusdriverprofile.php?id=".$id."'; // Redirect back to the update page with the same ID
                 </script>");
             exit();
         }
 
         // Prepare and bind the SQL statement
-        $query = "UPDATE `bus_driver` SET user_id=?, First_Name=?, Last_Name=?, username=?, bus_assigned=?, telephone=?, email=?, password=? WHERE id=?";
+        $query = "UPDATE `bus_driver` SET user_id=?, First_Name=?,Last_Name=?,username=?, bus_assigned=?, telephone=?, email=?, password=? WHERE id=?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("ssssssssi", $user_id, $First_Name, $Last_Name, $username, $Bus_Name, $Telephone_no, $Email, $Password, $id);
 
@@ -80,11 +79,11 @@ session_start();
 
         if($query_run) {
             echo ("<script LANGUAGE='JavaScript'>
-            window.alert('Successfully updated the bus driver profile!');
-            window.location.href='Busdriverprofile.php';
+            window.alert('Successfully Transaction Updated!!!');
+            window.location.href='StationBusdriverprofile.php';
             </script>");
         } else {
-            echo '<script type="text/javascript">alert("Bus driver profile not updated!")</script>';
+            echo '<script type="text/javascript">alert("Bus Driver Profile Not updated!!!")</script>';
         }
 
         // Close the statement and connection
@@ -97,31 +96,34 @@ session_start();
         <div class="wrapper">
             <div class="registration_form">
                 <div class="title">
-                    Bus Driver Update/Edit
+                    Bus Driver update/Edit
                 </div>
                 <form action="#" method="POST">
                     <div class="form_wrap">
                         <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
+                        
+                        <div class="input_wrap">
+                            <label for="title">User Id</label>
+                            <input type="number" id="title" name="user_id" placeholder="user id" class="idclass" required>
+                        </div>
+                        <div class="input_wrap">
+                            <label for="title">First Name</label>
+                            <input type="text" id="title" name="First_Name" placeholder="First Name" required>
+                        </div>
 
                         <div class="input_wrap">
-                            <label for="user_id">User Id</label>
-                            <input type="number" id="user_id" name="user_id" placeholder="User Id" class="idclass" required>
+                            <label for="title">Last Name</label>
+                            <input type="text" id="title" name="Last_Name" placeholder="Last Name" required>
                         </div>
+
                         <div class="input_wrap">
-                            <label for="First_Name">First Name</label>
-                            <input type="text" id="First_Name" name="First_Name" placeholder="First Name" required>
+                            <label for="title">Username</label>
+                            <input type="text" id="title" name="username" placeholder="Username" required>
                         </div>
+
                         <div class="input_wrap">
-                            <label for="Last_Name">Last Name</label>
-                            <input type="text" id="Last_Name" name="Last_Name" placeholder="Last Name" required>
-                        </div>
-                        <div class="input_wrap">
-                            <label for="username">Username</label>
-                            <input type="text" id="username" name="username" placeholder="Username" required>
-                        </div>
-                        <div class="input_wrap">
-                            <label for="bus_assigned">Select Bus</label>
-                            <select id="bus_assigned" name="bus_assigned" class="idclass" required>
+                            <label for="title">Select Bus</label>
+                            <select id="title" name="bus_assigned" class="idclass" required>
                                 <?php 
                                 $sql = "SELECT Bus_Name FROM bus";
                                 $result = $conn->query($sql);
@@ -134,16 +136,16 @@ session_start();
                             </select>
                         </div>
                         <div class="input_wrap">
-                            <label for="telephone">Telephone no</label>
-                            <input type="text" id="telephone" name="telephone" placeholder="Telephone number" class="idclass" required>
+                            <label for="title">Telephone no</label>
+                            <input type="text" id="title" name="telephone" placeholder="Telephone number" class="idclass">
                         </div>
                         <div class="input_wrap">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Email" class="idclass" required>
+                            <label for="title">Email</label>
+                            <input type="email" id="title" name="email" placeholder="Email" class="idclass">
                         </div>
                         <div class="input_wrap">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" placeholder="Password" class="idclass" required>
+                            <label for="title">Password</label>
+                            <input type="password" id="title" name="password" placeholder="Password" class="idclass" required>
                         </div>
                         <div class="input_wrap">
                             <input type="submit" value="Update Bus Driver Now" class="submit_btn" name="UpdateBusDriver">

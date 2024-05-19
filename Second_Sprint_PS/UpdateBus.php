@@ -81,15 +81,12 @@
        if(isset($_POST['BusUpdate'])){
 
        $id=$_POST['id'];
-       $user_id=$_POST['user_id'];
        $Bus_Name=$_POST['Bus_Name'];
-       $Driver_Name=$_POST['Driver_Name'];
-      $Telephone_no=$_POST['Telephone_no'];
-      $Email=$_POST['Email'];
-      $Password=$_POST['Password'];
+       $Tel=$_POST['Tel'];
+      
        
 
-       $query="UPDATE `bus_driver` SET user_id='$user_id',Bus_Name='$Bus_Name',Driver_Name='$Driver_Name',Telephone_no='$Telephone_no',Email='$Email',Password='$Password' where id=$id";
+       $query="UPDATE `bus` SET Bus_Name='$Bus_Name',Tel='$Tel'where id=$id";
 
 
        $query_run=mysqli_query($conn,$query);
@@ -151,47 +148,20 @@
 
       <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
 
-        <div class="input_wrap">
-          <label for="title">user Id</label>
-          <input type="number" id="title" name="user_id" class="idclass" required>
-        </div>
-        
+               
         <div class="input_wrap">
           <label for="title">Bus Name</label>
           <input type="text" id="title" name="Bus_Name" placeholder="Bus Name" required>
         </div>
 
 
+        
         <div class="input_wrap">
-                            <label for="title">Select Driver</label>
-                            <select id="title" name="Driver_Name"  class="idclass" required>
-                                <?php 
-                                $sql = "SELECT Driver_Name FROM bus_driver";
-                                $result = $conn->query($sql);
-                                if ($result->num_rows > 0) {
-                                    while($row = $result->fetch_assoc()) {
-                                        echo "<option value='".$row['Driver_Name']."'>".$row['Driver_Name']."</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
-                        </div>
-        <div class="input_wrap">
-          <label for="title">Telephone</label>
-          <input type="number" id="title" name="Telephone_no" placeholder="Telephone no" class="idclass" required>
+          <label for="title">Telephone no</label>
+          <input type="number" id="title" name="Tel" placeholder="Telephone no" class="idclass" required>
         </div>
 
-        <div class="input_wrap">
-          <label for="title">Email</label>
-          <input type="email" id="title" name="Email" placeholder="Email" class="idclass" required>
-        </div>
-
-        <div class="input_wrap">
-          <label for="title">Password</label>
-          <input type="password" id="title" name="Password" placeholder="Password" required>
-        </div>
-
-       
+             
         <div class="input_wrap">
 
           <input type="submit" value="Update Bus Now" class="submit_btn" name="BusUpdate">
