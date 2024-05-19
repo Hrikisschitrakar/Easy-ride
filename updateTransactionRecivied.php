@@ -82,7 +82,7 @@
 
        if(isset($_POST['updateTransaction'])){
 
-       
+       $id=$_POST['id'];
        $amount=$_POST['amount'];
        $name=$_POST['name'];
       $email=$_POST['email'];
@@ -90,7 +90,7 @@
       $city=$_POST['city'];
       
 
-       $query="UPDATE `payment` SET amount='$amount',name='$name',email='$email',address='$address',city='$city' ";
+       $query="UPDATE `payment` SET amount='$amount',name='$name',email='$email',address='$address',city='$city' where id=$id";
 
 
        $query_run=mysqli_query($conn,$query);
@@ -150,9 +150,7 @@
 
     <form action="#" method="POST">
       <div class="form_wrap">
-
-
-        
+      <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
 
         <div class="input_wrap">
           <label for="title">Paid Amount</label>
@@ -164,29 +162,20 @@
           <input type="text" id="title" name="name" placeholder="Passenger Name" required>
         </div>
 
-
         <div class="input_wrap">
-                            <label for="title">Select Address</label>
-                            <select id="title" name="address"  class="idclass" required>
-                                <?php 
-                                $sql = "SELECT via_city FROM location";
-                                $result = $conn->query($sql);
-                                if ($result->num_rows > 0) {
-                                    while($row = $result->fetch_assoc()) {
-                                        echo "<option value='".$row['via_city']."'>".$row['via_city']."</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
-                        </div>
+          <label for="title">Address</label>
+          <input type="text" id="title" name="address" placeholder="Address" required>
+        </div>
 
+
+        
         <div class="input_wrap">
           <label for="title">E-mail</label>
           <input type="E-mail" id="title" name="email" placeholder="E-mail" class="idclass" required>
         </div>
 
         <div class="input_wrap">
-                            <label for="title">Select Destination</label>
+                            <label for="title">Select city</label>
                             <select id="title" name="city"  class="idclass" required>
                                 <?php 
                                 $sql = "SELECT Destination FROM location";
